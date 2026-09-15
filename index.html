@@ -1,1724 +1,646 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Constelaciones del Dinero — Fernando Matias Acri Gorbalan</title>
-
-  <meta
-    name="description"
-    content="Constelaciones del Dinero. Un proceso de 6 sesiones para destrabar tu relación con el dinero desde una mirada sistémica, simbólica y creativa."
-  />
-
-  <link rel="icon" href="assets/logo-campo-sagrado.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --cream: #f6f2e9;
-      --cream-light: #fbf9f4;
-      --cream-warm: #f0e8d8;
-      --black: #171714;
-      --gray: #66645e;
-      --gold: #b59a62;
-      --gold-dark: #8a7340;
-      --gold-light: #d6c397;
-      --line: rgba(23, 23, 20, 0.10);
-      --white: #fffdf8;
-      --radius-sm: 12px;
-      --radius-md: 20px;
-      --radius-lg: 28px;
-      --radius-xl: 40px;
-      --shadow-soft: 0 8px 40px rgba(23, 23, 20, 0.06);
-      --shadow-card: 0 4px 24px rgba(23, 23, 20, 0.05);
-      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--cream-light);
-      color: var(--black);
-      font-family: "Inter", sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 400;
-      line-height: 1.08;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    summary:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-    }
-
-    .container {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: -100%;
-      left: 16px;
-      z-index: 100;
-      padding: 12px 24px;
-      background: var(--black);
-      color: var(--white);
-      font-size: 14px;
-      border-radius: var(--radius-sm);
-      transition: top var(--transition);
-    }
-
-    .skip-link:focus {
-      top: 16px;
-    }
-
-    .footer-logo {
-      height: 24px;
-      width: auto;
-      opacity: 0.85;
-    }
-
-    em {
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    /* HEADER */
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 20;
-      padding: 28px 0;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-    }
-
-    .brand img {
-      height: 312px;
-      width: auto;
-      transition: opacity var(--transition);
-    }
-
-    .brand img:hover {
-      opacity: 0.7;
-    }
-
-    .nav-link {
-      position: absolute;
-      right: 0;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      transition: all var(--transition);
-    }
-
-    .nav-link:hover {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          ellipse at 50% 40%,
-          rgba(181, 154, 98, 0.10),
-          transparent 55%
-        ),
-        radial-gradient(
-          ellipse at 80% 80%,
-          rgba(181, 154, 98, 0.06),
-          transparent 40%
-        ),
-        var(--cream);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border: 1px solid rgba(181, 154, 98, 0.15);
-      border-radius: 50%;
-      left: -200px;
-      top: -200px;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 480px;
-      height: 480px;
-      border: 1px solid rgba(181, 154, 98, 0.18);
-      border-radius: 50%;
-      right: -140px;
-      bottom: -150px;
-      animation: float 25s ease-in-out infinite reverse;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(20px, -20px); }
-    }
-
-    .hero-content {
-      max-width: 850px;
-      position: relative;
-      z-index: 2;
-      padding-top: 70px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 30px;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      padding: 8px 20px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 999px;
-      border: 1px solid rgba(181, 154, 98, 0.15);
-      backdrop-filter: blur(8px);
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .hero h1 {
-      font-size: clamp(58px, 9vw, 110px);
-      letter-spacing: -0.03em;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-description {
-      max-width: 600px;
-      margin: 34px auto 0;
-      font-size: 17px;
-      color: var(--gray);
-    }
-
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      margin-top: 42px;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .hero-meta span {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .hero-meta span::before {
-      content: "✦";
-      color: var(--gold);
-      font-size: 8px;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 42px;
-      padding: 16px 32px;
-      background: var(--black);
-      color: var(--white);
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      transition: all var(--transition);
-    }
-
-    .cta:hover {
-      background: var(--gold);
-      color: var(--black);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(181, 154, 98, 0.25);
-    }
-
-    .cta-arrow {
-      font-size: 16px;
-      transition: transform var(--transition);
-    }
-
-    .cta:hover .cta-arrow {
-      transform: translateX(4px);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 120px 0;
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      margin-bottom: 26px;
-    }
-
-    .section-label::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    /* INTRO */
-    .intro {
-      background: var(--cream-light);
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .intro h2 {
-      font-size: clamp(42px, 5vw, 68px);
-    }
-
-    .intro-copy {
-      font-size: 19px;
-      color: var(--gray);
-      max-width: 650px;
-    }
-
-    .intro-copy p + p {
-      margin-top: 25px;
-    }
-
-    .intro-img {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      margin-top: 40px;
-      object-fit: cover;
-      aspect-ratio: 16/9;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .img-section {
-      width: 100%;
-      margin-top: 0;
-      padding: 0;
-    }
-
-    .img-section img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      border-radius: var(--radius-xl);
-      margin: 0 auto;
-      max-width: 1200px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    /* REFLECTION */
-    .reflection {
-      background: var(--black);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .reflection::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border: 1px solid rgba(181, 154, 98, 0.12);
-      border-radius: 50%;
-      right: -200px;
-      top: -200px;
-    }
-
-    .reflection .section-label {
-      color: var(--gold-light);
-    }
-
-    .reflection .section-label::before {
-      background: var(--gold-light);
-    }
-
-    .reflection h2 {
-      font-size: clamp(46px, 6vw, 82px);
-      max-width: 800px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      margin-top: 70px;
-      gap: 1px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .card {
-      padding: 42px 35px;
-      background: var(--black);
-      transition: background var(--transition);
-    }
-
-    .card:hover {
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .card-number {
-      font-family: "Cormorant Garamond", serif;
-      color: var(--gold-light);
-      font-size: 26px;
-      opacity: 0.6;
-    }
-
-    .card p {
-      margin-top: 22px;
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.7;
-    }
-
-    /* TRANSFORMATION */
-    .transformation {
-      background: var(--cream);
-      position: relative;
-    }
-
-    .transformation-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 100px;
-      align-items: center;
-    }
-
-    .transformation h2 {
-      font-size: clamp(48px, 6vw, 78px);
-    }
-
-    .quote {
-      border-left: 2px solid var(--gold);
-      padding-left: 35px;
-      color: var(--gray);
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .quote p + p {
-      margin-top: 20px;
-    }
-
-    /* ORIGIN */
-    .origin {
-      background: var(--cream-light);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .origin::before {
-      content: "";
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border: 1px solid rgba(181, 154, 98, 0.12);
-      border-radius: 50%;
-      left: -150px;
-      bottom: -150px;
-    }
-
-    .origin-inner {
-      max-width: 820px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .origin h2 {
-      font-size: clamp(52px, 7vw, 92px);
-    }
-
-    .origin-text {
-      margin: 35px auto 0;
-      max-width: 680px;
-      font-size: 18px;
-      color: var(--gray);
-      line-height: 1.8;
-    }
-
-    /* PROCESS */
-    .process {
-      background: var(--cream-warm);
-      position: relative;
-    }
-
-    .process h2 {
-      font-size: clamp(48px, 6vw, 76px);
-      max-width: 700px;
-    }
-
-    .process-list {
-      margin-top: 70px;
-    }
-
-    .process-item {
-      display: grid;
-      grid-template-columns: 100px 250px 1fr;
-      gap: 30px;
-      padding: 40px 0;
-      border-top: 1px solid var(--line);
-      align-items: center;
-      transition: all var(--transition);
-    }
-
-    .process-item:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .process-item:hover {
-      padding-left: 12px;
-    }
-
-    .process-number {
-      font-family: "Cormorant Garamond", serif;
-      color: var(--gold);
-      font-size: 38px;
-      opacity: 0.5;
-      transition: opacity var(--transition);
-    }
-
-    .process-item:hover .process-number {
-      opacity: 1;
-    }
-
-    .process-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 31px;
-    }
-
-    .process-description {
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* ABOUT */
-    .about {
-      background: var(--cream-light);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 90px;
-      align-items: center;
-    }
-
-    .portrait {
-      aspect-ratio: 4 / 5;
-      width: 100%;
-      object-fit: cover;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .about h2 {
-      font-size: clamp(48px, 6vw, 78px);
-    }
-
-    .about-copy {
-      margin-top: 30px;
-      color: var(--gray);
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    .about-copy p + p {
-      margin-top: 18px;
-    }
-
-    /* OFFER */
-    .offer {
-      background: var(--black);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .offer::before {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border: 1px solid rgba(181, 154, 98, 0.10);
-      border-radius: 50%;
-      left: -250px;
-      top: -250px;
-    }
-
-    .offer-inner {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .offer .section-label {
-      color: var(--gold-light);
-    }
-
-    .offer .section-label::before {
-      background: var(--gold-light);
-    }
-
-    .offer h2 {
-      font-size: clamp(55px, 7vw, 95px);
-    }
-
-    .offer-description {
-      margin: 35px auto 0;
-      max-width: 650px;
-      color: rgba(255, 255, 255, 0.65);
-      font-size: 17px;
-    }
-
-    .offer-box {
-      margin-top: 55px;
-      border: 1px solid rgba(181, 154, 98, 0.25);
-      padding: 40px;
-      text-align: left;
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .offer-box ul {
-      list-style: none;
-    }
-
-    .offer-box li {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.75);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .offer-box li:last-child {
-      border-bottom: none;
-    }
-
-    .offer-box li::before {
-      content: "✦";
-      color: var(--gold);
-      font-size: 10px;
-      flex-shrink: 0;
-    }
-
-    .offer .cta {
-      background: var(--gold);
-      color: var(--black);
-    }
-
-    .offer .cta:hover {
-      background: var(--white);
-      box-shadow: 0 12px 32px rgba(181, 154, 98, 0.3);
-    }
-
-    /* FAQ */
-    .faq {
-      background: var(--cream);
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: 100px;
-    }
-
-    .faq h2 {
-      font-size: clamp(50px, 6vw, 78px);
-    }
-
-    details {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      transition: all var(--transition);
-    }
-
-    details:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    summary {
-      cursor: pointer;
-      list-style: none;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 0;
-      transition: color var(--transition);
-    }
-
-    summary:hover {
-      color: var(--gold-dark);
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      font-family: "Inter", sans-serif;
-      font-size: 20px;
-      color: var(--gold-dark);
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      transition: all var(--transition);
-      flex-shrink: 0;
-    }
-
-    details[open] summary::after {
-      content: "−";
-      background: var(--gold-dark);
-      color: var(--white);
-      border-color: var(--gold-dark);
-    }
-
-    details p {
-      margin-top: 18px;
-      color: var(--gray);
-      max-width: 650px;
-      line-height: 1.8;
-    }
-
-    /* FINAL CTA */
-    .final {
-      min-height: 75vh;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(181, 154, 98, 0.12),
-          transparent 50%
-        ),
-        var(--cream-light);
-    }
-
-    .final-inner {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .final h2 {
-      font-size: clamp(52px, 8vw, 100px);
-    }
-
-    .final p {
-      max-width: 600px;
-      margin: 30px auto 0;
-      color: var(--gray);
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 40px 0;
-      background: var(--black);
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      z-index: 50;
-      right: 25px;
-      bottom: 25px;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #25D366;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
-      transition: all var(--transition);
-      text-decoration: none;
-    }
-
-    .whatsapp:hover {
-      transform: scale(1.08);
-      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
-    }
-
-    .whatsapp svg {
-      width: 27px;
-      height: 27px;
-      fill: currentColor;
-    }
-
-    /* ANIMATION */
-    .fade {
-      opacity: 0;
-      transform: translateY(25px);
-      animation: fadeUp 1s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .fade {
-        animation: none;
-        opacity: 1;
-        transform: none;
-      }
-      html {
-        scroll-behavior: auto;
-      }
-      .hero::before,
-      .hero::after {
-        animation: none;
-      }
-      .process-item:hover {
-        padding-left: 0;
-      }
-    }
-
-    /* SURVEY */
-    .survey {
-      padding: 0 0 80px;
-      text-align: center;
-    }
-
-    .survey-card {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 40px;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(181, 154, 98, 0.18);
-      border-radius: var(--radius-lg);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .survey-card .eyebrow {
-      justify-content: center;
-    }
-
-    .survey-card h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 12px;
-    }
-
-    .survey-card > p {
-      color: var(--gray);
-      font-size: 16px;
-      margin-bottom: 32px;
-    }
-
-    .survey-options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .survey-btn {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      padding: 16px 22px;
-      background: var(--cream-light);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      font-family: "Inter", sans-serif;
-      font-size: 15px;
-      color: var(--black);
-      cursor: pointer;
-      transition: all var(--transition);
-      text-align: left;
-    }
-
-    .survey-btn:hover {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card);
-    }
-
-    .survey-btn .survey-icon {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--cream);
-      border: 1px solid var(--line);
-      font-size: 16px;
-      transition: all var(--transition);
-    }
-
-    .survey-btn:hover .survey-icon {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--black);
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-
-      .container {
-        width: min(100% - 32px, 1120px);
-      }
-
-      header {
-        padding: 20px 0;
-      }
-
-      .brand img {
-        height: 160px;
-      }
-
-      .nav-link {
-        display: none;
-      }
-
-      section {
-        padding: 80px 0;
-      }
-
-      .hero {
-        min-height: 90vh;
-      }
-
-      .hero h1 {
-        font-size: clamp(42px, 12vw, 70px);
-      }
-
-      .hero-description {
-        font-size: 16px;
-      }
-
-      .hero-meta {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .intro-grid,
-      .transformation-grid,
-      .about-grid,
-      .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .process-item {
-        grid-template-columns: 55px 1fr;
-        gap: 10px;
-      }
-
-      .process-description {
-        grid-column: 2;
-      }
-
-      .portrait {
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .about-grid {
-        text-align: center;
-      }
-
-      .about-copy {
-        text-align: left;
-      }
-
-      .offer-box {
-        padding: 25px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-      }
-
-      .survey-card h2 {
-        font-size: clamp(24px, 6vw, 36px);
-      }
-
-      .survey-btn {
-        padding: 14px 18px;
-        font-size: 14px;
-      }
-
-      .survey {
-        padding: 0 0 60px;
-      }
-
-      .survey-card {
-        padding: 32px 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .brand img {
-        height: 120px;
-      }
-
-      .hero h1 {
-        font-size: clamp(36px, 10vw, 56px);
-      }
-
-      .hero-description {
-        font-size: 15px;
-      }
-
-      .cta {
-        padding: 14px 24px;
-        font-size: 10px;
-      }
-
-      .section-label {
-        font-size: 9px;
-      }
-
-      .process-item {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .process-number {
-        font-size: 28px;
-      }
-
-      .portrait {
-        max-width: 280px;
-      }
-    }
-
-      .eyebrow {
-        font-size: 9px;
-      }
-
-      .img-section img {
-        border-radius: var(--radius-lg);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÁUREA — Oráculo del Linaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--ivory:#FAF8F5;--white-warm:#F5F0EB;--black:#0A0A0A;--black-soft:#141414;--gold:#C9A96E;--gold-mate:#B8976A;--gold-light:#D4B87A;--gold-dim:rgba(201,169,110,0.15);--stone:#6B6560;--stone-light:#9A9590;--sepia:#8B7D6B;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',Helvetica,Arial,sans-serif}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);color:var(--black);background:var(--ivory);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,h5{font-family:var(--serif);font-weight:400;line-height:1.15}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.25rem 2rem;transition:all 0.4s ease;display:flex;align-items:center;justify-content:space-between}
+.navbar.scrolled{background:rgba(250,248,245,0.97);backdrop-filter:blur(10px);padding:0.8rem 2rem;box-shadow:0 1px 0 rgba(0,0,0,0.06)}
+.nav-logo{text-align:left}
+.nav-logo .logo-text{font-family:var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:0.15em;color:var(--black);transition:color 0.3s}
+.nav-logo .logo-sub{font-family:var(--sans);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--stone);transition:color 0.3s;margin-top:-2px}
+.navbar.scrolled .logo-text{color:var(--black)}
+.navbar:not(.scrolled) .logo-text{color:#fff}
+.navbar:not(.scrolled) .logo-sub{color:rgba(255,255,255,0.7)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover::after{width:100%}
+.navbar.scrolled .nav-links a{color:var(--black)}
+.navbar:not(.scrolled) .nav-links a{color:rgba(255,255,255,0.85)}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.65rem 1.5rem;border:1px solid var(--gold);color:var(--gold);transition:all 0.3s;font-weight:500}
+.nav-cta:hover{background:var(--gold);color:#fff}
+.navbar.scrolled .nav-cta{border-color:var(--gold);color:var(--gold)}
+.navbar:not(.scrolled) .nav-cta{border-color:rgba(201,169,110,0.6);color:var(--gold-light)}
+.navbar:not(.scrolled) .nav-cta:hover{background:var(--gold);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:5px}
+.hamburger span{width:24px;height:1.5px;background:var(--black);transition:all 0.3s}
+.navbar:not(.scrolled) .hamburger span{background:#fff}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--ivory);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--black);letter-spacing:0.05em}
+.mobile-menu .nav-cta{margin-top:1rem;font-size:0.8rem}
+
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0.1) 0%,rgba(10,10,10,0.05) 30%,rgba(10,10,10,0.6) 70%,var(--black) 100%);z-index:2}
+.hero-img{position:absolute;inset:0;background:linear-gradient(180deg,#d4cfc8 0%,#c8c0b5 40%,#8a7e70 70%,var(--black) 100%);z-index:1}
+.hero-img::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><radialGradient id="a" cx="50%" cy="30%"><stop offset="0%" stop-color="%23e8e0d4"/><stop offset="100%" stop-color="%23b8a890"/></radialGradient></defs><rect fill="url(%23a)" width="800" height="600"/><g opacity="0.15" stroke="%23C9A96E" fill="none" stroke-width="0.5"><circle cx="400" cy="250" r="120"/><circle cx="400" cy="250" r="180"/><circle cx="400" cy="250" r="240"/><line x1="400" y1="250" x2="400" y2="600" stroke-width="1"/><line x1="350" y1="350" x2="300" y2="500"/><line x1="450" y1="350" x2="500" y2="500"/><line x1="380" y1="380" x2="320" y2="520"/><line x1="420" y1="380" x2="480" y2="520"/><path d="M370 130 Q400 80 430 130" /><path d="M340 150 Q400 60 460 150" /></g></svg>') center/cover no-repeat;opacity:0.4}
+.hero-grain{position:absolute;inset:0;z-index:3;opacity:0.04;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");background-size:128px}
+.hero-content{position:relative;z-index:5;text-align:center;padding:0 2rem;animation:heroFadeIn 1.5s ease forwards}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-title{font-family:var(--serif);font-size:clamp(3.5rem,8vw,7rem);font-weight:300;color:#fff;letter-spacing:0.2em;margin-bottom:0.3rem;line-height:1}
+.hero-subtitle{font-family:var(--sans);font-size:clamp(0.6rem,1.2vw,0.8rem);letter-spacing:0.4em;text-transform:uppercase;color:var(--gold-light);margin-bottom:2.5rem}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.6rem);color:rgba(255,255,255,0.85);font-weight:300;font-style:italic;margin-bottom:1rem;line-height:1.4}
+.hero-desc{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:480px;margin:0 auto 2.5rem;font-weight:300}
+.hero-btn{display:inline-block;padding:0.9rem 3rem;border:1px solid var(--gold);color:var(--gold);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;position:relative;overflow:hidden}
+.hero-btn::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;z-index:-1}
+.hero-btn:hover{color:#fff}
+.hero-btn:hover::before{transform:scaleX(1)}
+.hero-note{font-size:0.65rem;color:rgba(255,255,255,0.35);margin-top:1rem;letter-spacing:0.1em}
+.hero-orbit{width:300px;height:300px;border:0.5px solid rgba(201,169,110,0.15);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:orbitSpin 30s linear infinite;pointer-events:none;z-index:4}
+.hero-orbit:nth-child(2){width:450px;height:450px;animation-duration:45s;animation-direction:reverse;border-style:dashed}
+.hero-orbit:nth-child(3){width:600px;height:600px;animation-duration:60s;border-color:rgba(201,169,110,0.08)}
+@keyframes orbitSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hero-sphere{width:8px;height:8px;background:var(--gold);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 20px rgba(201,169,110,0.4),0 0 60px rgba(201,169,110,0.15);animation:spherePulse 3s ease-in-out infinite;z-index:4}
+@keyframes spherePulse{0%,100%{box-shadow:0 0 20px rgba(201,169,110,0.4),0 0 60px rgba(201,169,110,0.15)}50%{box-shadow:0 0 30px rgba(201,169,110,0.6),0 0 80px rgba(201,169,110,0.25)}}
+
+.section-about{padding:8rem 0;background:var(--ivory)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:2rem;line-height:1.2;color:var(--black)}
+.about-text p{font-size:0.9rem;color:var(--stone);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.about-quote{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--gold-mate);border-left:2px solid var(--gold);padding-left:1.5rem;margin-top:2rem;line-height:1.6}
+.about-visual{position:relative;height:500px;display:flex;align-items:center;justify-content:center}
+.about-tree{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.about-tree svg{width:80%;height:80%;opacity:0.12}
+.about-sphere{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,var(--gold-light),var(--gold));box-shadow:0 0 40px rgba(201,169,110,0.3);animation:spherePulse 4s ease-in-out infinite}
+.about-photo{position:absolute;background:var(--white-warm);border:1px solid rgba(201,169,110,0.15);overflow:hidden}
+.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05),transparent)}
+.about-photo-1{width:140px;height:180px;top:10%;left:5%;transform:rotate(-3deg)}
+.about-photo-2{width:120px;height:160px;top:15%;right:8%;transform:rotate(2deg)}
+.about-photo-3{width:130px;height:170px;bottom:10%;left:15%;transform:rotate(1deg)}
+.about-photo-4{width:110px;height:150px;bottom:15%;right:12%;transform:rotate(-2deg)}
+
+.section-consult{padding:6rem 0 8rem;background:var(--ivory);position:relative}
+.section-consult::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold))}
+.consult-header{text-align:center;margin-bottom:3rem}
+.consult-header h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;margin-bottom:0.8rem}
+.consult-header p{font-size:0.9rem;color:var(--stone);font-weight:300}
+.consult-form{max-width:600px;margin:0 auto;text-align:center}
+.consult-input{width:100%;padding:1.2rem 1.5rem;font-family:var(--sans);font-size:0.95rem;border:1px solid rgba(201,169,110,0.25);background:rgba(255,255,255,0.6);color:var(--black);outline:none;transition:border-color 0.3s;margin-bottom:1.5rem;font-weight:300;resize:none}
+.consult-input::placeholder{color:var(--stone-light);font-style:italic}
+.consult-input:focus{border-color:var(--gold)}
+.consult-btn{display:inline-block;padding:0.9rem 3rem;background:var(--black);color:var(--gold);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;border:1px solid var(--black)}
+.consult-btn:hover{background:transparent;color:var(--black)}
+
+.card-overlay{position:fixed;inset:0;background:rgba(10,10,10,0.85);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.5s;backdrop-filter:blur(8px)}
+.card-overlay.active{opacity:1;pointer-events:all}
+.card-reveal{position:relative;max-width:440px;width:90%;text-align:center;color:#fff;transform:scale(0.92);opacity:0;filter:blur(8px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.card-overlay.active .card-reveal{transform:scale(1);opacity:1;filter:blur(0)}
+.card-close{position:absolute;top:-3rem;right:0;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;transition:color 0.3s;z-index:10}
+.card-close:hover{color:var(--gold)}
+.card-reveal-image{width:220px;height:340px;margin:0 auto 2rem;border:1px solid rgba(201,169,110,0.3);background:var(--ivory);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.card-reveal-image img{width:100%;height:100%;object-fit:cover}
+.card-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--ivory),var(--white-warm));position:relative}
+.card-placeholder::before{content:'';position:absolute;inset:15px;border:0.5px solid rgba(201,169,110,0.3)}
+.card-placeholder-num{font-family:var(--serif);font-size:2.5rem;color:var(--gold);font-weight:300;margin-bottom:0.3rem}
+.card-placeholder-name{font-family:var(--serif);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone)}
+.card-placeholder-concept{font-size:0.6rem;letter-spacing:0.2em;color:var(--stone-light);margin-top:0.3rem;text-transform:uppercase}
+.card-reveal-num{font-family:var(--sans);font-size:0.65rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:0.3rem}
+.card-reveal-name{font-family:var(--serif);font-size:1.8rem;font-weight:400;margin-bottom:0.2rem}
+.card-reveal-concept{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem}
+.card-reveal-interpretation{font-size:0.85rem;line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:1rem;font-weight:300;text-align:left}
+.card-reveal-section{margin-bottom:1.5rem;text-align:left}
+.card-reveal-section h4{font-family:var(--sans);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.card-reveal-section p{font-size:0.82rem;line-height:1.7;color:rgba(255,255,255,0.6);font-weight:300}
+.card-reveal-phrase{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--gold-light);padding:1rem 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);margin:1.5rem 0;line-height:1.5}
+.card-reveal-btn{display:inline-block;padding:0.75rem 2rem;border:1px solid var(--gold);color:var(--gold);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;margin-top:0.5rem;transition:all 0.3s}
+.card-reveal-btn:hover{background:var(--gold);color:var(--black)}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:2001}
+.particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0;animation:particleFloat 3s ease-out forwards}
+@keyframes particleFloat{0%{opacity:0;transform:translateY(0) scale(0)}20%{opacity:0.8;transform:translateY(-20px) scale(1)}100%{opacity:0;transform:translateY(-120px) scale(0.3)}}
+
+.section-three{padding:6rem 0 8rem;background:var(--black);color:#fff;position:relative;overflow:hidden}
+.section-three::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.section-three::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.three-header{text-align:center;margin-bottom:4rem}
+.three-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:0.8rem}
+.three-header p{font-size:0.9rem;color:rgba(255,255,255,0.5);font-weight:300}
+.three-dims{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:4rem}
+.three-dim{text-align:center;padding:2rem 1.5rem;border:1px solid rgba(201,169,110,0.1);position:relative}
+.three-dim::before{content:attr(data-num);font-family:var(--serif);font-size:2.5rem;color:rgba(201,169,110,0.15);position:absolute;top:0.5rem;right:1rem;font-weight:300}
+.three-dim h3{font-family:var(--serif);font-size:1.1rem;margin-bottom:0.5rem;color:var(--gold-light)}
+.three-dim p{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.6;font-weight:300}
+.three-btn-wrap{text-align:center}
+.three-btn{display:inline-block;padding:0.9rem 3rem;border:1px solid var(--gold);color:var(--gold);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;position:relative;overflow:hidden}
+.three-btn::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;z-index:-1}
+.three-btn:hover{color:var(--black)}
+.three-btn:hover::before{transform:scaleX(1)}
+.three-result{margin-top:4rem;display:none}
+.three-result.active{display:block}
+.three-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem}
+.three-card-item{text-align:center;padding:1.5rem;border:1px solid rgba(201,169,110,0.12);opacity:0;transform:translateY(20px);transition:all 0.6s}
+.three-card-item.revealed{opacity:1;transform:translateY(0)}
+.three-card-img{width:140px;height:210px;margin:0 auto 1rem;border:1px solid rgba(201,169,110,0.2);overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--black-soft),#1a1a1a)}
+.three-card-img img{width:100%;height:100%;object-fit:cover}
+.three-card-num{font-family:var(--sans);font-size:0.6rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:0.2rem}
+.three-card-name{font-family:var(--serif);font-size:1.1rem;margin-bottom:0.15rem}
+.three-card-concept{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem}
+.three-card-text{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300}
+.three-reading-final{text-align:center;padding:2rem;border:1px solid rgba(201,169,110,0.12);background:rgba(201,169,110,0.03)}
+.three-reading-final p{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.7}
+
+.section-arcans{padding:6rem 0 8rem;background:var(--ivory)}
+.arcans-header{text-align:center;margin-bottom:4rem}
+.arcans-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:0.8rem}
+.arcans-header p{font-size:0.9rem;color:var(--stone);font-weight:300}
+.arcans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.arcans-card{border:1px solid rgba(201,169,110,0.12);padding:1.5rem 1rem;text-align:center;cursor:pointer;transition:all 0.4s;position:relative;overflow:hidden;background:rgba(255,255,255,0.4)}
+.arcans-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05),transparent);opacity:0;transition:opacity 0.4s}
+.arcans-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.06);border-color:rgba(201,169,110,0.3)}
+.arcans-card:hover::before{opacity:1}
+.arcans-card-num{font-family:var(--serif);font-size:1.6rem;color:var(--gold);font-weight:300;margin-bottom:0.3rem}
+.arcans-card-name{font-family:var(--serif);font-size:0.95rem;margin-bottom:0.2rem}
+.arcans-card-concept{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-light)}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(10,10,10,0.85);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(8px)}
+.modal-overlay.active{opacity:1;pointer-events:all}
+.modal-content{max-width:600px;width:90%;max-height:85vh;overflow-y:auto;background:var(--ivory);padding:3rem;position:relative;transform:translateY(20px);transition:transform 0.4s}
+.modal-overlay.active .modal-content{transform:translateY(0)}
+.modal-close{position:absolute;top:1rem;right:1.5rem;background:none;border:none;font-size:1.5rem;color:var(--stone);cursor:pointer;transition:color 0.3s;z-index:10}
+.modal-close:hover{color:var(--gold)}
+.modal-img{width:160px;height:240px;margin:0 auto 2rem;border:1px solid rgba(201,169,110,0.2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-num{font-family:var(--sans);font-size:0.6rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:0.2rem}
+.modal-name{font-family:var(--serif);font-size:2rem;text-align:center;margin-bottom:0.2rem}
+.modal-concept{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-light);text-align:center;margin-bottom:1.5rem}
+.modal-section{margin-bottom:1.5rem}
+.modal-section h4{font-family:var(--sans);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.modal-section p{font-size:0.85rem;line-height:1.7;color:var(--stone);font-weight:300}
+.modal-phrase{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold-mate);padding:1rem 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);text-align:center;line-height:1.5}
+
+.section-journey{padding:6rem 0 8rem;background:var(--white-warm);position:relative}
+.journey-header{text-align:center;margin-bottom:4rem}
+.journey-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:0.8rem}
+.journey-header p{font-size:0.9rem;color:var(--stone);font-weight:300}
+.journey-line{position:relative;max-width:700px;margin:0 auto}
+.journey-step{display:flex;align-items:flex-start;gap:2rem;position:relative;padding-bottom:2.5rem}
+.journey-step:last-child{padding-bottom:0}
+.journey-step::before{content:'';position:absolute;left:19px;top:40px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,169,110,0.2))}
+.journey-step:last-child::before{display:none}
+.journey-num{width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.85rem;color:var(--gold);flex-shrink:0;position:relative;z-index:1;background:var(--white-warm)}
+.journey-info h3{font-family:var(--serif);font-size:1.1rem;margin-bottom:0.3rem}
+.journey-info p{font-size:0.8rem;color:var(--stone);font-weight:300;line-height:1.6}
+.journey-text{max-width:600px;margin:4rem auto 0;text-align:center}
+.journey-text p{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--stone);line-height:1.7}
+
+.section-personal{padding:6rem 0 8rem;background:var(--ivory);position:relative}
+.section-personal::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold))}
+.personal-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.personal-text h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:1.5rem;line-height:1.2}
+.personal-text>p{font-size:0.9rem;color:var(--stone);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.personal-list{list-style:none;margin-bottom:2rem}
+.personal-list li{font-size:0.85rem;color:var(--stone);padding:0.4rem 0;padding-left:1.2rem;position:relative;font-weight:300}
+.personal-list li::before{content:'';position:absolute;left:0;top:50%;width:4px;height:4px;background:var(--gold);border-radius:50%;transform:translateY(-50%)}
+.personal-highlight{background:var(--black);color:#fff;padding:2.5rem;text-align:center;margin-bottom:2rem}
+.personal-highlight h3{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:0.8rem}
+.personal-highlight p{font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.7}
+.personal-btn{display:inline-block;padding:0.9rem 2.5rem;background:var(--gold);color:var(--black);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;border:1px solid var(--gold)}
+.personal-btn:hover{background:transparent;color:var(--gold)}
+.personal-visual{position:relative;height:450px;display:flex;align-items:center;justify-content:center}
+
+.section-creator{padding:6rem 0 8rem;background:var(--white-warm)}
+.creator-content{max-width:700px;margin:0 auto;text-align:center}
+.creator-content h2{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;line-height:1.4;margin-bottom:2rem;font-style:italic;color:var(--black)}
+.creator-content>p{font-size:0.9rem;color:var(--stone);line-height:1.8;margin-bottom:2rem;font-weight:300}
+.creator-questions{display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-bottom:3rem}
+.creator-question{font-family:var(--serif);font-size:0.9rem;font-style:italic;color:var(--gold-mate);padding:0.5rem 1.2rem;border:1px solid rgba(201,169,110,0.2);background:rgba(255,255,255,0.5)}
+.creator-signature{text-align:center}
+.creator-signature .sig-name{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:0.3rem}
+.creator-signature .sig-project{font-family:var(--serif);font-size:0.85rem;color:var(--gold-mate);font-style:italic}
+.creator-signature .sig-title{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-light);margin-top:0.2rem}
+
+.section-closing{padding:8rem 0;background:var(--black);text-align:center;position:relative;overflow:hidden}
+.closing-sphere{width:12px;height:12px;background:var(--gold);border-radius:50%;margin:0 auto 3rem;box-shadow:0 0 30px rgba(201,169,110,0.4),0 0 80px rgba(201,169,110,0.15);animation:spherePulse 3s ease-in-out infinite}
+.closing-text{margin-bottom:3rem}
+.closing-text h2{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:300;color:#fff;line-height:1.3;margin-bottom:0.5rem;letter-spacing:0.05em}
+.closing-text p{font-size:0.9rem;color:rgba(255,255,255,0.4);font-weight:300}
+.closing-btn{display:inline-block;padding:0.9rem 3rem;border:1px solid var(--gold);color:var(--gold);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;margin-bottom:1rem}
+.closing-btn:hover{background:var(--gold);color:var(--black)}
+.closing-note{font-size:0.65rem;color:rgba(255,255,255,0.25);letter-spacing:0.1em}
+
+.footer{padding:3rem 0;background:var(--black);border-top:1px solid rgba(201,169,110,0.08)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-brand .footer-logo{font-family:var(--serif);font-size:1.1rem;color:#fff;letter-spacing:0.15em}
+.footer-brand .footer-sub{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:2px}
+.footer-creator{font-size:0.7rem;color:rgba(255,255,255,0.25);font-weight:300}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:0.7rem;letter-spacing:0.1em;color:rgba(255,255,255,0.35);transition:color 0.3s;text-transform:uppercase}
+.footer-links a:hover{color:var(--gold)}
+
+.back-top{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border:1px solid rgba(201,169,110,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.9rem;cursor:pointer;opacity:0;pointer-events:none;transition:all 0.3s;z-index:900;background:rgba(250,248,245,0.9);backdrop-filter:blur(5px)}
+.back-top.visible{opacity:1;pointer-events:all}
+.back-top:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+
+@media(max-width:1024px){.arcans-grid{grid-template-columns:repeat(3,1fr)}.about-grid,.personal-grid{grid-template-columns:1fr;gap:3rem}.about-visual{height:350px}.personal-visual{height:300px}}
+@media(max-width:768px){.nav-links{display:none}.nav-cta{display:none}.hamburger{display:flex}.arcans-grid{grid-template-columns:repeat(2,1fr)}.three-dims{grid-template-columns:1fr;gap:1.5rem}.three-cards-grid{grid-template-columns:1fr;gap:1.5rem}.hero-title{letter-spacing:0.12em}.footer-inner{flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}.journey-step{gap:1rem}.modal-content{padding:2rem 1.5rem}}
+@media(max-width:480px){.arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.8rem}.arcans-card{padding:1rem 0.5rem}.container{padding:0 1.2rem}.card-reveal-image{width:180px;height:280px}}
+</style>
 </head>
-
 <body>
 
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <div class="logo-text">ÁUREA</div>
+    <div class="logo-sub">Oráculo del Linaje</div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">El Oráculo</a>
+    <a href="#consult">Cómo funciona</a>
+    <a href="#arcans">Los 22 Arcanos</a>
+    <a href="#personal">Profundizar</a>
+    <a href="#consult" class="nav-cta">Consultar Áurea</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-  <!-- HEADER -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">El Oráculo</a>
+  <a href="#consult" onclick="closeMobile()">Cómo funciona</a>
+  <a href="#arcans" onclick="closeMobile()">Los 22 Arcanos</a>
+  <a href="#personal" onclick="closeMobile()">Profundizar</a>
+  <a href="#consult" class="nav-cta" onclick="closeMobile()">Consultar Áurea</a>
+</div>
 
-  <header>
-    <nav class="container nav" aria-label="Navegación principal">
-      <div class="brand">
-        <img src="assets/logo-campo-sagrado.png" alt="Fernando Matias Acri Gorbalan · Orden Creativo" width="120" height="32" />
+<section class="hero" id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-orbit"></div>
+  <div class="hero-orbit"></div>
+  <div class="hero-orbit"></div>
+  <div class="hero-sphere"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">ÁUREA</h1>
+    <div class="hero-subtitle">Oráculo del Linaje</div>
+    <p class="hero-tagline">Una nueva forma de mirar<br>la historia que heredaste.</p>
+    <p class="hero-desc">22 arcanos inspirados en el Tarot<br>para explorar vínculos, patrones,<br>memoria ancestral y transformación.</p>
+    <a href="#consult" class="hero-btn">Consultar Áurea</a>
+    <p class="hero-note">Tu primera consulta es gratuita.</p>
+  </div>
+</section>
+
+<section class="section-about" id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <h2>¿Y si algunas respuestas<br>estuvieran en tu historia?</h2>
+        <p>ÁUREA es un oráculo de 22 arcanos inspirado en la estructura simbólica del Tarot y creado desde una mirada sistémica y ancestral.</p>
+        <p>Cada carta representa un arquetipo que puede aparecer dentro de una historia familiar:</p>
+        <p>una exclusión,<br>un secreto,<br>un vínculo,<br>una ausencia,<br>una repetición,<br>un sacrificio,<br>una ruptura,<br>una transformación.</p>
+        <p>ÁUREA no busca predecir tu futuro.<br>Busca ayudarte a mirar aquello que puede estar influyendo en tu presente.</p>
+        <div class="about-quote">"Cuando podemos mirar nuestra historia,<br>podemos elegir qué hacer con ella."</div>
       </div>
-
-      <a href="#proceso" class="nav-link">
-        Constelaciones del Dinero
-      </a>
-    </nav>
-  </header>
-
-
-  <main id="main-content">
-
-    <!-- HERO -->
-
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content fade">
-
-          <div class="eyebrow">
-            Proceso de acompañamiento · 6 sesiones
-          </div>
-
-          <h1>
-            El dinero
-            <em>también tiene historia.</em>
-          </h1>
-
-          <p class="hero-description">
-            Un proceso de 6 sesiones para recorrer paso a paso aquello que
-            obstaculiza tu relación con el dinero —desde la raíz sistémica
-            hasta una nueva forma de recibir, elegir y avanzar.
-          </p>
-
-          <div class="hero-meta">
-            <span>Acompañamiento 1:1</span>
-            <span>Online</span>
-            <span>6 sesiones</span>
-          </div>
-
-          <a
-            class="cta"
-            href="https://wa.me/541131404044?text=Hola%20Fernando%2C%20quiero%20conocer%20el%20proceso%20de%20Constelaciones%20del%20Dinero."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Quiero conocer el proceso
-            <span class="cta-arrow">→</span>
-          </a>
-
+      <div class="about-visual">
+        <div class="about-tree">
+          <svg viewBox="0 0 300 400" fill="none" stroke="rgba(201,169,110,0.3)" stroke-width="0.5">
+            <line x1="150" y1="50" x2="150" y2="400"/>
+            <line x1="150" y1="150" x2="100" y2="80"/>
+            <line x1="150" y1="150" x2="200" y2="80"/>
+            <line x1="150" y1="200" x2="80" y2="140"/>
+            <line x1="150" y1="200" x2="220" y2="140"/>
+            <line x1="150" y1="250" x2="70" y2="200"/>
+            <line x1="150" y1="250" x2="230" y2="200"/>
+            <line x1="150" y1="300" x2="90" y2="260"/>
+            <line x1="150" y1="300" x2="210" y2="260"/>
+            <line x1="150" y1="350" x2="100" y2="320"/>
+            <line x1="150" y1="350" x2="200" y2="320"/>
+            <circle cx="150" cy="50" r="3" fill="rgba(201,169,110,0.3)"/>
+            <circle cx="100" cy="80" r="2" fill="rgba(201,169,110,0.2)"/>
+            <circle cx="200" cy="80" r="2" fill="rgba(201,169,110,0.2)"/>
+            <circle cx="80" cy="140" r="2" fill="rgba(201,169,110,0.2)"/>
+            <circle cx="220" cy="140" r="2" fill="rgba(201,169,110,0.2)"/>
+          </svg>
         </div>
+        <div class="about-sphere"></div>
+        <div class="about-photo about-photo-1"></div>
+        <div class="about-photo about-photo-2"></div>
+        <div class="about-photo about-photo-3"></div>
+        <div class="about-photo about-photo-4"></div>
       </div>
-    </section>
-
-
-    <!-- SURVEY -->
-
-    <section class="survey">
-      <div class="container">
-        <div class="survey-card">
-
-          <div class="eyebrow">
-            Tu opinión importa
-          </div>
-
-          <h2>¿Cómo sentiste la masterclass?</h2>
-
-          <p>Elegí la opción que mejor represente lo que viviste</p>
-
-          <div class="survey-options">
-
-            <button class="survey-btn" onclick="sendSurvey('Me encantó, quiero seguir profundizando')">
-              <span class="survey-icon">✦</span>
-              <span>Me encantó, quiero seguir profundizando</span>
-            </button>
-
-            <button class="survey-btn" onclick="sendSurvey('Me gustó pero tengo dudas')">
-              <span class="survey-icon">✦</span>
-              <span>Me gustó pero tengo dudas</span>
-            </button>
-
-            <button class="survey-btn" onclick="sendSurvey('No fue lo que esperaba')">
-              <span class="survey-icon">✦</span>
-              <span>No fue lo que esperaba</span>
-            </button>
-
-            <button class="survey-btn" onclick="sendSurvey('Quiero hablar con vos antes de decidir')">
-              <span class="survey-icon">✦</span>
-              <span>Quiero hablar con vos antes de decidir</span>
-            </button>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- INTRO -->
-
-    <section class="intro">
-      <div class="container">
-        <div class="intro-grid">
-
-          <div>
-            <div class="section-label">
-              Una mirada diferente
-            </div>
-            <h2>
-              No se trata de hacer más.<br>Se trata de <em>recibir</em> distinto.
-            </h2>
-          </div>
-
-          <div class="intro-copy">
-
-            <p>
-              Antes de aprender a ganar, ya habíamos aprendido —o no— a recibir.
-              Y lo aprendimos en el vínculo más temprano: con nuestra madre.
-            </p>
-            <p>
-              Desde ahí se construye todo lo demás: cómo llega el dinero,
-              cómo lo guardamos, cómo lo gastamos, cómo lo merecemos.
-            </p>
-            <p>
-              Constelaciones del Dinero es un recorrido de 6 sesiones
-              para mirar esa raíz y abrir una nueva posibilidad.
-            </p>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- REFLECTION -->
-
-    <section class="reflection">
-      <div class="container">
-
-        <div class="section-label">
-          Tal vez te está pasando
-        </div>
-
-        <h2>
-          Sabés querer abundancia,<br>pero algo la frena.
-        </h2>
-
-        <div class="cards">
-
-          <div class="card">
-            <div class="card-number">01</div>
-            <p>
-              Sentís que merecer lo bueno te cuesta más de lo que debería.
-              Aunque racionalmente sabés que lo merecés, algo adentro frena.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">02</div>
-            <p>
-              El dinero parece no llegar, o cuando llega se va igual.
-              Hay un patrón que se repite y no encontrás la salida.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">03</div>
-            <p>
-              Notás que la culpa aparece cuando te va bien,
-              o que sentís que tomar demasiado es una forma de traicionar a alguien.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- TRANSFORMATION -->
-
-    <section class="transformation">
-      <div class="container">
-        <div class="transformation-grid">
-
-          <div>
-            <div class="section-label">
-              Mi manera de acompañarte
-            </div>
-            <h2>
-              No trabajo para que te conviertas en otra persona.
-            </h2>
-          </div>
-
-          <div class="quote">
-            <p>
-              Trabajo para que puedas reconocer qué historia llevás
-              puesta en el dinero, mirar su origen y encontrar
-              una nueva forma de recibir, elegir y avanzar.
-            </p>
-            <p>
-              Integro una mirada sistémica, simbólica y creativa
-              para que cada sesión te acerque a tu propia verdad,
-              sin apuro, sin culpa, sin exigencia.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ORIGIN -->
-
-    <section class="origin" id="proceso">
-      <div class="container">
-        <div class="origin-inner">
-
-          <div class="section-label">
-            El espacio
-          </div>
-
-          <h2>
-            ¿Qué son<br>
-            las Constelaciones del Dinero?
-          </h2>
-
-          <p class="origin-text">
-            Es un proceso de 6 sesiones individuales donde recorrés,
-            paso a paso, tu historia con el dinero. Desde la raíz
-            —el vínculo temprano con recibir— hasta la posibilidad
-            de ocupar un nuevo lugar frente a la abundancia.
-          </p>
-
-          <a
-            class="cta"
-            href="https://wa.me/541131404044?text=Hola%20Fernando%2C%20quiero%20conocer%20el%20proceso%20de%20Constelaciones%20del%20Dinero."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Quiero conversar con vos
-            <span class="cta-arrow">→</span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- PROCESS — 6 SESSIONS -->
-
-    <section class="process">
-      <div class="container">
-
-        <div class="section-label">
-          Las 6 sesiones
-        </div>
-
-        <h2>
-          Seis pasos para destrabar tu relación con el dinero.
-        </h2>
-
-        <div class="process-list">
-
-          <div class="process-item">
-            <div class="process-number">01</div>
-            <div class="process-title">
-              El vínculo con lo recibido
-            </div>
-            <div class="process-description">
-              Miramos cómo fue tu relación con recibir de tu madre.
-              El primer acto de recibir es la raíz de todo lo que
-              después llega —incluido el dinero.
-            </div>
-          </div>
-
-          <div class="process-item">
-            <div class="process-number">02</div>
-            <div class="process-title">
-              El merecimiento y la culpa
-            </div>
-            <div class="process-description">
-              Exploramos aquello que te impide sentirte merecedor.
-              Las lealtades invisibles, las frases heredadas y
-              los mandatos que todavía te sostienen.
-            </div>
-          </div>
-
-          <div class="process-item">
-            <div class="process-number">03</div>
-            <div class="process-title">
-              El dinero como espejo
-            </div>
-            <div class="process-description">
-              El dinero no es solo dinero: refleja vínculos,
-              pertenencias y órdenes familiares. Reconocemos
-              qué historia está puesta en tu relación con él.
-            </div>
-          </div>
-
-          <div class="process-item">
-            <div class="process-number">04</div>
-            <div class="process-title">
-              Soltar lo que no es tuyo
-            </div>
-            <div class="process-description">
-              Deudas, culpas, deudas simbólicas y lealtades
-              familiares. Devolvemos a cada quien lo que le
-              pertenece y liberamos lo que estás cargando.
-            </div>
-          </div>
-
-          <div class="process-item">
-            <div class="process-number">05</div>
-            <div class="process-title">
-              Recibir desde tu lugar
-            </div>
-            <div class="process-description">
-              Ocupás el lugar del que recibe sin culpa,
-              sin pedir permiso, sin compensar. Recibir
-              se convierte en un acto de vida, no de deuda.
-            </div>
-          </div>
-
-          <div class="process-item">
-            <div class="process-number">06</div>
-            <div class="process-title">
-              Crear desde la nueva posición
-            </div>
-            <div class="process-description">
-              Integrás lo mirado y elegís una nueva forma
-              de relacionarte con el dinero. Decisiones
-              concretas, movimiento real en tu vida cotidiana.
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about">
-      <div class="container">
-        <div class="about-grid">
-
-          <img src="assets/ChatGPT Image 10 sept 2026, 04_56_59 p.m.png" alt="Fernando Matias Acri Gorbalan" class="portrait" width="400" height="500" loading="lazy" />
-
-          <div>
-
-            <div class="section-label">
-              Sobre mí
-            </div>
-
-            <h2>
-              Soy Fernando Matias Acri Gorbalan.
-            </h2>
-
-            <div class="about-copy">
-              <p>
-                Soy diseñador gráfico y creador de Orden Creativo.
-              </p>
-              <p>
-                Desde hace años integro creatividad, símbolos,
-                trabajo sistémico y procesos de transformación
-                para crear espacios donde las personas puedan
-                reconocerse y abrir nuevas posibilidades.
-              </p>
-              <p>
-                Constelaciones del Dinero nace de esa integración:
-                un recorrido donde mirar la historia con el dinero
-                no significa quedarse en ella, sino encontrar
-                una nueva forma de recibir y avanzar.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- OFFER -->
-
-    <section class="offer">
-      <div class="container">
-        <div class="offer-inner">
-
-          <div class="section-label">
-            Acompañamiento individual
-          </div>
-
-          <h2>
-            Constelaciones<br>del Dinero
-          </h2>
-
-          <p class="offer-description">
-            Un recorrido de 6 sesiones para trabajar tu relación con el
-            dinero desde la raíz, paso a paso, con una mirada sistémica
-            y creativa.
-          </p>
-
-          <div class="offer-box">
-            <ul>
-              <li>6 sesiones individuales 1:1</li>
-              <li>Online — desde donde estés</li>
-              <li>Mirada sistémica y simbólica</li>
-              <li>Cuaderno de trabajo personalizado</li>
-              <li>Material de integración entre sesiones</li>
-              <li>Acompañamiento cercano y personalizado</li>
-            </ul>
-          </div>
-
-          <a
-            class="cta"
-            href="https://wa.me/541131404044?text=Hola%20Fernando%2C%20quiero%20conocer%20el%20proceso%20de%20Constelaciones%20del%20Dinero."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Quiero conocer el proceso
-            <span class="cta-arrow">→</span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- FAQ -->
-
-    <section class="faq">
-      <div class="container">
-        <div class="faq-grid">
-
-          <div>
-            <div class="section-label">
-              Preguntas
-            </div>
-            <h2>
-              Antes de dar el próximo paso.
-            </h2>
-          </div>
-
-          <div>
-
-            <details>
-              <summary>
-                ¿Para quién es este proceso?
-              </summary>
-              <p>
-                Para personas que sienten que hay algo que se repite
-                en su relación con el dinero —bloqueos, culpa, dificultad
-                para recibir— y quieren mirarlo desde una perspectiva
-                diferente, con disposición a participar activamente.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Es terapia?
-              </summary>
-              <p>
-                No. Constelaciones del Dinero no reemplaza psicoterapia,
-                tratamiento médico ni atención profesional de salud.
-                Es un espacio de acompañamiento y exploración personal
-                desde la mirada sistémica.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Cómo funciona?
-              </summary>
-              <p>
-                Son 6 sesiones online, de aproximadamente 60-75 minutos
-                cada una. Cada sesión tiene un tema y un recorrido.
-                Trabajamos con preguntas, ejercicios y constelaciones
-                guiadas para mirar tu historia desde el cuerpo y el corazón.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Cuánto dura el proceso completo?
-              </summary>
-              <p>
-                Las 6 sesiones se desarrollan a lo largo de unas 6 a 8 semanas,
-                con un encuentro semanal. La frecuencia se adapta a tu ritmo.
-                Te explico todos los detalles cuando conversemos por WhatsApp.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Necesito saber de constelaciones antes?
-              </summary>
-              <p>
-                No. Cada sesión arranca desde lo que necesitás, no desde
-                teoría. Yo me encargo de sostener el espacio y guiarte
-                en cada paso. Solo necesitás disposición y ganas de mirar.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                ¿Qué sucede después de escribirte?
-              </summary>
-              <p>
-                Primero vamos a conversar. Quiero entender qué estás
-                atravesando y qué querés trabajar antes de proponerte
-                el proceso. Sin compromiso, sin apuro.
-              </p>
-            </details>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- FINAL CTA -->
-
-    <section class="final">
-      <div class="container">
-        <div class="final-inner">
-
-          <div class="section-label">
-            Tu próximo paso
-          </div>
-
-          <h2>
-            Si sentís que es momento de mirar tu historia con el dinero...
-          </h2>
-
-          <p>
-            No necesitás tener todo claro antes de escribirme.
-            Podemos empezar por una conversación.
-          </p>
-
-          <a
-            class="cta"
-            href="https://wa.me/541131404044?text=Hola%20Fernando%2C%20quiero%20conocer%20el%20proceso%20de%20Constelaciones%20del%20Dinero."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Quiero conversar con vos
-            <span class="cta-arrow">→</span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-    <div class="container footer-inner">
-
-      <div>
-        <img src="assets/logo-campo-sagrado.png" alt="Fernando Matias Acri Gorbalan · Orden Creativo" class="footer-logo" width="120" height="24" loading="lazy" />
-      </div>
-
-      <div>
-        Constelaciones del Dinero
-      </div>
-
-      <div>
-        Fernando Matias Acri Gorbalan
-      </div>
-
     </div>
-  </footer>
+  </div>
+</section>
 
+<section class="section-consult" id="consult">
+  <div class="container">
+    <div class="consult-header reveal">
+      <h2>Consultá Áurea</h2>
+      <p>Hacé una pregunta. Dejá que una carta abra una nueva mirada.</p>
+    </div>
+    <div class="consult-form reveal">
+      <textarea class="consult-input" id="questionInput" rows="3" placeholder="Ejemplo:&#10;&quot;¿Qué necesito comprender sobre mi relación con mi familia?&quot;"></textarea>
+      <br>
+      <button class="consult-btn" id="revealBtn" onclick="revealCard()">Revelar Mi Carta</button>
+    </div>
+  </div>
+</section>
 
-  <!-- WHATSAPP -->
+<div class="card-overlay" id="cardOverlay">
+  <div class="card-reveal" id="cardReveal">
+    <button class="card-close" onclick="closeCard()">&times;</button>
+    <div class="card-reveal-image" id="cardRevealImage"></div>
+    <div class="card-reveal-num" id="cardRevealNum"></div>
+    <div class="card-reveal-name" id="cardRevealName"></div>
+    <div class="card-reveal-concept" id="cardRevealConcept"></div>
+    <div class="card-reveal-interpretation" id="cardRevealInterp"></div>
+    <div class="card-reveal-section">
+      <h4>La Mirada Sistémica</h4>
+      <p id="cardRevealSistemic"></p>
+    </div>
+    <div class="card-reveal-section">
+      <h4>Para Mirar Más Profundo</h4>
+      <p id="cardRevealQuestion"></p>
+    </div>
+    <div class="card-reveal-phrase" id="cardRevealPhrase"></div>
+    <button class="card-reveal-btn" onclick="closeCard();document.getElementById('three').scrollIntoView({behavior:'smooth'})">Quiero Profundizar</button>
+  </div>
+</div>
 
-  <a
-    class="whatsapp"
-    href="https://wa.me/541131404044?text=Hola%20Fernando%2C%20quiero%20conocer%20el%20proceso%20de%20Constelaciones%20del%20Dinero."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Contactar por WhatsApp"
-  >
-    <svg viewBox="0 0 24 24">
-      <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.3ZM12.2 21.6c-1.7 0-3.4-.5-4.8-1.3l-.3-.2-3.8 1 1-3.7-.2-.4a9.7 9.7 0 1 1 8.1 4.6Zm5.3-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.9.7.8.3 1.5.3 2.1.2.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"/>
-    </svg>
-  </a>
+<div class="particles" id="particles"></div>
 
-  <script>
-    function sendSurvey(answer) {
-      var text = encodeURIComponent('Mi respuesta sobre la masterclass: ' + answer);
-      window.open('https://wa.me/541131404044?text=' + text, '_blank');
-    }
-  </script>
+<section class="section-three" id="three">
+  <div class="container">
+    <div class="three-header reveal">
+      <h2>Más Allá de Una Carta</h2>
+      <p>Una carta puede abrir una puerta. Tres pueden mostrarte el camino.</p>
+    </div>
+    <div class="three-dims reveal">
+      <div class="three-dim" data-num="01"><h3>Lo Que Heredo</h3><p>Aquello que recibí de mi sistema.</p></div>
+      <div class="three-dim" data-num="02"><h3>Lo Que Repito</h3><p>El patrón que continúa buscando ser visto.</p></div>
+      <div class="three-dim" data-num="03"><h3>Lo Que Puedo Transformar</h3><p>La posibilidad de elegir algo diferente.</p></div>
+    </div>
+    <div class="three-btn-wrap reveal">
+      <button class="three-btn" id="threeBtn" onclick="revealThree()">Hacer Una Lectura de 3 Cartas</button>
+    </div>
+    <div class="three-result" id="threeResult">
+      <div class="three-cards-grid" id="threeCardsGrid"></div>
+      <div class="three-reading-final" id="threeReadingFinal"></div>
+    </div>
+  </div>
+</section>
 
+<section class="section-arcans" id="arcans">
+  <div class="container">
+    <div class="arcans-header reveal">
+      <h2>Los 22 Arcanos de Áurea</h2>
+      <p>22 arquetipos. 22 puertas. Una historia que también puede ser transformada.</p>
+    </div>
+    <div class="arcans-grid" id="arcansGrid"></div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-content" id="modalContent">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<section class="section-journey" id="journey">
+  <div class="container">
+    <div class="journey-header reveal">
+      <h2>El Viaje de Áurea</h2>
+      <p>Un recorrido simbólico desde la exclusión hacia la integración.</p>
+    </div>
+    <div class="journey-line reveal">
+      <div class="journey-step"><div class="journey-num">0</div><div class="journey-info"><h3>El Errante</h3><p>La Exclusión — el punto de partida, aquello que quedó fuera.</p></div></div>
+      <div class="journey-step"><div class="journey-num">I–V</div><div class="journey-info"><h3>Las Raíces</h3><p>El Origen, la Guardiana, la Matriarca, el Patriarca, el Ancestro. La base de la historia familiar.</p></div></div>
+      <div class="journey-step"><div class="journey-num">VI–X</div><div class="journey-info"><h3>Los Vínculos</h3><p>Los Amantes, el Heredero, el Orden, el Buscador, la Repetición. Las relaciones y patrones que se repiten.</p></div></div>
+      <div class="journey-step"><div class="journey-num">XI–XV</div><div class="journey-info"><h3>La Transformación</h3><p>La Fuerza, el Sacrificio, el Cambio, la Alquimia, la Sombra. El proceso de confrontación y cambio.</p></div></div>
+      <div class="journey-step"><div class="journey-num">XVI–XVIII</div><div class="journey-info"><h3>La Revelación</h3><p>La Torre, la Estrella, la Luna. Los quiebres que revelan lo oculto.</p></div></div>
+      <div class="journey-step"><div class="journey-num">XIX–XXI</div><div class="journey-info"><h3>El Despertar</h3><p>El Sol, el Llamado, el Mundo. La conciencia plena y la integración.</p></div></div>
+    </div>
+    <div class="journey-text reveal">
+      <p>ÁUREA propone un viaje simbólico: de la exclusión al origen, del origen al vínculo, del vínculo a la repetición, de la repetición a la conciencia, y de la conciencia a la integración.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-personal" id="personal">
+  <div class="container">
+    <div class="personal-grid reveal">
+      <div class="personal-text">
+        <h2>¿Querés ir más profundo?</h2>
+        <p>Una carta puede mostrarte algo. Una lectura puede ayudarte a comprenderlo.</p>
+        <p>Si sentís que una carta tocó una historia que necesitás mirar con mayor profundidad, podés realizar una lectura personalizada de ÁUREA conmigo.</p>
+        <p style="margin-bottom:1rem">La sesión combina:</p>
+        <ul class="personal-list">
+          <li>Los 22 arcanos de ÁUREA</li>
+          <li>Mirada sistémica</li>
+          <li>Historia familiar</li>
+          <li>Patrones y repeticiones</li>
+          <li>Vínculos</li>
+          <li>Preguntas de conciencia</li>
+          <li>Ejercicios de integración</li>
+          <li>Frases sanadoras</li>
+        </ul>
+        <div class="personal-highlight">
+          <h3>Lectura Personalizada ÁUREA</h3>
+          <p>Un espacio individual para explorar aquello que tu consulta está intentando mostrarte.</p>
+        </div>
+        <a href="#" class="personal-btn" id="whatsappBtn">Quiero Reservar Mi Lectura</a>
+      </div>
+      <div class="personal-visual">
+        <div class="about-sphere"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-creator" id="creator">
+  <div class="container">
+    <div class="creator-content reveal">
+      <h2>ÁUREA nació de una pregunta:<br><em>¿Qué pasa cuando dejamos de mirar nuestra historia solamente como pasado y empezamos a verla como una posibilidad de conciencia?</em></h2>
+      <p>ÁUREA fue creado por Fernando Matías Acri, diseñador y creador visual, a partir del encuentro entre el lenguaje simbólico del Tarot, la mirada sistémica y la exploración de la memoria ancestral.</p>
+      <p>Durante el recorrido de los 22 arcanos, cada carta propone una pregunta diferente:</p>
+      <div class="creator-questions">
+        <span class="creator-question">¿Qué heredé?</span>
+        <span class="creator-question">¿Qué estoy repitiendo?</span>
+        <span class="creator-question">¿A quién sigo mirando?</span>
+        <span class="creator-question">¿Qué quedó excluido?</span>
+        <span class="creator-question">¿Qué necesito reconocer?</span>
+        <span class="creator-question">¿Qué puedo transformar?</span>
+      </div>
+      <div class="creator-signature">
+        <div class="sig-name">Fernando Matías Acri</div>
+        <div class="sig-project">ÁUREA</div>
+        <div class="sig-title">Oráculo del Linaje</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-closing" id="closing">
+  <div class="container">
+    <div class="closing-sphere"></div>
+    <div class="closing-text reveal">
+      <h2>Tu historia no es una condena.</h2>
+      <h2>Es el lugar desde donde<br>podés empezar a elegir.</h2>
+    </div>
+    <a href="#consult" class="closing-btn">Consultar Áurea</a>
+    <p class="closing-note">22 arcanos para transformar<br>la herencia en conciencia.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">ÁUREA</div>
+        <div class="footer-sub">Oráculo del Linaje</div>
+      </div>
+      <div class="footer-creator">Creado por Fernando Matías Acri</div>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const whatsappNumber = "549XXXXXXXXXX";
+const whatsappMessage = encodeURIComponent("Hola Fernando, quiero reservar una Lectura Personalizada ÁUREA. Llegué desde el Oráculo del Linaje y me gustaría profundizar en mi consulta.");
+
+const cardImages = {
+  0:"images/aurea-00.jpg",1:"images/aurea-01.jpg",2:"images/aurea-02.jpg",3:"images/aurea-03.jpg",
+  4:"images/aurea-04.jpg",5:"images/aurea-05.jpg",6:"images/aurea-06.jpg",7:"images/aurea-07.jpg",
+  8:"images/aurea-08.jpg",9:"images/aurea-09.jpg",10:"images/aurea-10.jpg",11:"images/aurea-11.jpg",
+  12:"images/aurea-12.jpg",13:"images/aurea-13.jpg",14:"images/aurea-14.jpg",15:"images/aurea-15.jpg",
+  16:"images/aurea-16.jpg",17:"images/aurea-17.jpg",18:"images/aurea-18.jpg",19:"images/aurea-19.jpg",
+  20:"images/aurea-20.jpg",21:"images/aurea-21.jpg"
+};
+
+const cards = [
+  {numero:0,roman:"0",nombre:"El Errante",concepto:"La Exclusión",descripcion:"Esta carta aparece para invitarte a mirar aquello que quedó fuera de la historia familiar. Un miembro olvidado, una verdad que no fue dicha, un lugar que nadie se atrevió a ocupar.",miradaSistemica:"Desde una mirada sistémica, la exclusión es uno de los fenómenos más poderosos en una historia familiar. Algo que no fue aceptado o reconocido tiende a repetirse en las generaciones siguientes.",pregunta:"¿Hay alguien en tu historia familiar que fue olvidado, excluido o del que nadie hablar?",fraseSanadora:"Hoy reconozco que lo que fue excluido también merece un lugar en mi mirada."},
+  {numero:1,roman:"I",nombre:"El Origen",concepto:"La Raíz",descripcion:"El Origen te invita a mirar el punto de partida de tu historia. No se trata solo de dónde vinieron tus abuelos, sino de las creencias, los vínculos y las decisiones que sembraron las raíces de lo que hoy vivís.",miradaSistemica:"En terapia sistémica, el origen no es solo biológico: es el lugar donde se establecieron las primeras leyes no dichas de la familia.",pregunta:"¿Cuál es la primera historia que escuchaste sobre tu familia?",fraseSanadora:"Honro mis raíces sin negar lo que ellas también cargan."},
+  {numero:2,roman:"II",nombre:"La Guardiana",concepto:"El Secreto",descripcion:"La Guardiana protege aquello que no debe ser dicho. Lleva en sí el peso de los secretos familiares, las verdades ocultas, las historias que se silenciaron para proteger.",miradaSistemica:"Los secretos familiares crean un campo de energía invisible que afecta a las generaciones posteriores. Lo que no se nombra, se repite.",pregunta:"¿Sentís que hay algo en tu familia que todos saben pero nadie dice?",fraseSanadora:"Puedo honrar el silencio de otros y, al mismo tiempo, elegir decir mi verdad."},
+  {numero:3,roman:"III",nombre:"La Matriarca",concepto:"La Vida",descripcion:"La Matriarca representa la fuerza que sostiene la vida en la familia. Es la madre, la abuela, la tía que cargó con el peso de mantener todo unido.",miradaSistemica:"La Matriarca puede invitarte a mirar cuánto de lo que heredaste viene del rol que ella ocupó.",pregunta:"¿Qué aprendiste sobre lo que significa ser mujer en tu familia?",fraseSanadora:"Reconozco lo que la Matriarca sostuvo y elijo honrarlo sin repetir lo que me pesa."},
+  {numero:4,roman:"IV",nombre:"El Patriarca",concepto:"La Autoridad",descripcion:"El Patriarca encarna la autoridad, la estructura, las reglas. Habla del padre, del abuelo, de la figura que definió el orden.",miradaSistemica:"La autoridad en una familia no es solo el padre: es el sistema de reglas que se instaló.",pregunta:"¿Cómo se vivía la autoridad en tu familia cuando eras niño o niña?",fraseSanadora:"Puedo respetar la autoridad que heredé y, al mismo tiempo, construir la mía."},
+  {numero:5,roman:"V",nombre:"El Ancestro",concepto:"El Legado",descripcion:"El Ancestro representa todo lo que fue transmitido sin ser dicho: los gestos, las respuestas automáticas, los miedos que no tienen nombre propio.",miradaSistemica:"El legado no es solo lo material: es la forma en que una familia procesa (o no procesa) el dolor, la alegría, la culpa.",pregunta:"¿Qué hacés repetidamente que no sabés exactamente por qué?",fraseSanadora:"Recibo el legado de mis ancestros y elijo transformar lo que ya no me sirve."},
+  {numero:6,roman:"VI",nombre:"Los Amantes",concepto:"El Vínculo",descripcion:"Los Amantes no hablan solo de romance: hablan de vínculo en su forma más pura. Esta carta aparece cuando algo en tus relaciones actuales refleja un vínculo que viene de más atrás.",miradaSistemica:"Los vínculos de pareja muchas veces repiten dinámicas de la familia de origen.",pregunta:"¿Qué repetís en tus relaciones que ya apareció en tu historia familiar?",fraseSanadora:"Elijo vincularme desde la conciencia, no desde la repetición."},
+  {numero:7,roman:"VII",nombre:"El Heredero",concepto:"La Continuidad",descripcion:"El Heredero representa lo que continúa, lo que se transmite, lo que se repite porque nadie lo cuestionó.",miradaSistemica:"Ser heredero no es solo recibir: es continuar una historia. A veces lo que heredamos no es una posesión, sino una forma de ver el mundo.",pregunta:"¿Qué estás continuando en tu vida que no elegiste conscientemente?",fraseSanadora:"Puedo honrar lo que heredé y, al mismo tiempo, elegir qué hacer con ello."},
+  {numero:8,roman:"VIII",nombre:"El Orden",concepto:"La Justicia",descripcion:"El Orden habla de equilibrio, de las leyes invisibles que rigen una familia. Aparece cuando algo está desbalanceado.",miradaSistemica:"Cada familia tiene un orden. Cuando alguien lo transgrede, el sistema reacciona.",pregunta:"¿Qué reglas de tu familia seguís cumpliendo sin cuestionar?",fraseSanadora:"Puedo ver el orden que heredé y elegir construir uno que me haga más justo."},
+  {numero:9,roman:"IX",nombre:"El Buscador",concepto:"La Ausencia",descripcion:"El Buscador camina hacia algo que falta. Esta carta aparece cuando hay un vacío que no se puede nombrar fácilmente.",miradaSistemica:"La ausencia en una familia no es solo la partida de alguien: es también la presencia de algo que nunca fue.",pregunta:"¿Qué buscas que todavía no encontraste y creés que puede estar en tu historia?",fraseSanadora:"Aunque haya ausencias, puedo elegir estar presente en mi propia vida."},
+  {numero:10,roman:"X",nombre:"La Repetición",concepto:"Los Patrones",descripcion:"La Repetición es una de las cartas más reveladoras. Aparece cuando un patrón se manifiesta una y otra vez.",miradaSistemica:"Los patrones no son condenas: son señales. Algo en la historia familiar busca ser visto a través de la repetición.",pregunta:"¿Cuál es la situación que se repite en tu vida y que ya reconocés como un patrón?",fraseSanadora:"Reconozco el patrón y, al nombrarlo, le quito su poder automático."},
+  {numero:11,roman:"XI",nombre:"La Fuerza",concepto:"La Resiliencia",descripcion:"La Fuerza no es la que vence: es la que resiste. Aparece cuando necesitás recordar que ya has sostenido cosas difíciles.",miradaSistemica:"La resiliencia familiar es la capacidad de un sistema para atravesar crisis sin desintegrarse.",pregunta:"¿Qué crisis atravesaste que te enseñó algo que no sabías de vos?",fraseSanadora:"Mi fuerza no está en no caer, sino en saber que puedo levantarme."},
+  {numero:12,roman:"XII",nombre:"El Sacrificio",concepto:"La Lealtad Invisible",descripcion:"El Sacrificio habla de lo que se entrega sin ser pedido, a veces sin ser consciente.",miradaSistemica:"A veces cargamos con el dolor de alguien que ni conocimos, porque el sistema lo requiere.",pregunta:"¿Qué estás cargando que no sabés si es tuyo o de alguien más?",fraseSanadora:"Puedo honrar el sacrificio de otros sin repetirlo en mi vida."},
+  {numero:13,roman:"XIII",nombre:"El Cambio",concepto:"La Transformación",descripcion:"El Cambio no es suave: es una muerte y un renacimiento. Aparece cuando algo necesita transformarse de raíz.",miradaSistemica:"La transformación en un sistema familiar no siempre es bien recibida.",pregunta:"¿Qué estás dejando de ser para poder ser algo diferente?",fraseSanadora:"El cambio no es una traición: es una evolución."},
+  {numero:14,roman:"XIV",nombre:"La Alquimia",concepto:"La Reconciliación",descripcion:"La Alquimia transforma lo pesado en luz. Aparece cuando es momento de reconciliarte con algo de tu historia.",miradaSistemica:"La reconciliación no es perdonar y olvidar: es comprender que lo que pasó formó parte de algo más grande.",pregunta:"¿Hay algo de tu historia con lo que todavía no te reconciliaste?",fraseSanadora:"Puedo mirar mi historia con compasión y transformar lo heredado en conciencia."},
+  {numero:15,roman:"XV",nombre:"La Sombra",concepto:"Lo Oculto",descripcion:"La Sombra no es mala: es lo que no fue visto. Aparece cuando algo se esconde — no por maldad, sino por necesidad de protección.",miradaSistemica:"La sombra familiar es todo aquello que el sistema decidió no mirar.",pregunta:"¿Qué es lo que tu familia evita mirar y que vos intuís que existe?",fraseSanadora:"Puedo mirar mi sombra sin definirla por ella."},
+  {numero:16,roman:"XVI",nombre:"La Torre",concepto:"La Ruptura",descripcion:"La Torre es la estructura que se derrumba. No es un castigo: es una liberación.",miradaSistemica:"Las rupturas familiares no son fracasos: son el sistema intentando reorganizarse.",pregunta:"¿Qué se está derrumbando en tu vida que quizás necesite caer?",fraseSanadora:"Lo que se derrumba libera el espacio para lo que necesita construirse."},
+  {numero:17,roman:"XVII",nombre:"La Estrella",concepto:"La Esperanza",descripcion:"La Estrella brilla después de la tormenta. Aparece cuando, después de todo, hay una luz que no se apaga.",miradaSistemica:"La esperanza sistémica no es ingenua: es la certeza de que hay recursos que aún no fueron vistos.",pregunta:"¿Qué luz pequeña se encendió en vos recientemente que no sabés de dónde vino?",fraseSanadora:"Permito que la esperance entre sin tener que explicarla."},
+  {numero:18,roman:"XVIII",nombre:"La Luna",concepto:"La Memoria Inconsciente",descripcion:"La Luna ilumina lo que está bajo la superficie. Habla de la memoria que no se recuerda pero que guía las decisiones.",miradaSistemica:"Lo que no fue procesado por una generación puede aparecer en la siguiente como un déjà vu.",pregunta:"¿Hay algo que sentís en el cuerpo que no podés explicar con palabras?",fraseSanadora:"Confío en lo que mi memoria profunda sabe, aunque mi mente no lo entienda."},
+  {numero:19,roman:"XIX",nombre:"El Sol",concepto:"La Vida Plena",descripcion:"El Sol es la luz que no pide permiso. Aparece cuando es momento de permitirte vivir plenamente, sin culpa.",miradaSistemica:"Vivir plenamente en un sistema que cargó con dolor puede sentirse como una traición.",pregunta:"¿Qué estás posponiendo que sabés que te haría feliz?",fraseSanadora:"Mi plenitud no es una traición: es un homenaje a quienes no pudieron vivirla."},
+  {numero:20,roman:"XX",nombre:"El Llamado",concepto:"La Conciencia",descripcion:"El Llamado es la voz que dice: es hora de mirar. No es un regaño: es una invitación.",miradaSistemica:"La conciencia sistémica no se impone: se abre.",pregunta:"¿Qué sabés que es hora de mirar, aunque todavía no sepas cómo?",fraseSanadora:"Escucho el llamado y elijo responder con presencia, no con miedo."},
+  {numero:21,roman:"XXI",nombre:"El Mundo",concepto:"La Integración",descripcion:"El Mundo es el cierre del ciclo. No es perfección: es integración.",miradaSistemica:"La integración sistémica es cuando una familia puede contener toda su historia.",pregunta:"¿Qué partes de tu historia necesitás integrar para poder avanzar entero?",fraseSanadora:"Soy la integración de todo lo que vino antes y todo lo que elijo ser."}
+];
+
+const romanMap = {0:"0",1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI",7:"VII",8:"VIII",9:"IX",10:"X",11:"XI",12:"XII",13:"XIII",14:"XIV",15:"XV",16:"XVI",17:"XVII",18:"XVIII",19:"XIX",20:"XX",21:"XXI"};
+
+function getCardImage(num){
+  const card = cards[num];
+  return '<div class="card-placeholder"><div style="position:absolute;inset:20px;border:0.5px solid rgba(201,169,110,0.25)"></div><div style="position:absolute;inset:25px;border:0.5px solid rgba(201,169,110,0.1)"></div><svg viewBox="0 0 100 100" width="40" height="40" style="margin-bottom:0.8rem;opacity:0.3"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="0.5"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(201,169,110,0.3)" stroke-width="0.5"/><line x1="50" y1="20" x2="50" y2="80" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/><line x1="20" y1="50" x2="80" y2="50" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/></svg><div class="card-placeholder-num">'+romanMap[num]+'</div><div class="card-placeholder-name">'+card.nombre+'</div><div class="card-placeholder-concept">'+card.concepto+'</div></div>';
+}
+
+const navbar = document.getElementById('navbar');
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',window.scrollY>80);
+  backTop.classList.toggle('visible',window.scrollY>500);
+});
+
+function toggleMobile(){document.getElementById('mobileMenu').classList.toggle('active')}
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('active')}
+
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible')},{threshold:0.1,rootMargin:'0px 0px -50px 0px'}).observe(el);
+});
+
+function createParticles(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');p.className='particle';
+    p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';
+    p.style.animationDelay=Math.random()*3+'s';p.style.animationDuration=(2+Math.random()*2)+'s';
+    c.appendChild(p);
+  }
+}
+
+function revealCard(){
+  const input=document.getElementById('questionInput');
+  if(!input.value.trim()){input.style.borderColor='#c97a6e';setTimeout(()=>input.style.borderColor='rgba(201,169,110,0.25)',2000);return}
+  const idx=Math.floor(Math.random()*22);const card=cards[idx];const overlay=document.getElementById('cardOverlay');
+  document.getElementById('cardRevealImage').innerHTML=getCardImage(idx);
+  document.getElementById('cardRevealNum').textContent='Arcano '+romanMap[idx];
+  document.getElementById('cardRevealName').textContent=card.nombre;
+  document.getElementById('cardRevealConcept').textContent=card.concepto.toUpperCase();
+  document.getElementById('cardRevealInterp').textContent=card.descripcion;
+  document.getElementById('cardRevealSistemic').textContent=card.miradaSistemica;
+  document.getElementById('cardRevealQuestion').textContent=card.pregunta;
+  document.getElementById('cardRevealPhrase').textContent='"'+card.fraseSanadora+'"';
+  overlay.classList.add('active');document.body.style.overflow='hidden';createParticles();
+}
+
+function closeCard(){document.getElementById('cardOverlay').classList.remove('active');document.body.style.overflow='';document.getElementById('particles').innerHTML=''}
+document.getElementById('cardOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeCard()});
+
+function revealThree(){
+  const indices=[];
+  while(indices.length<3){const r=Math.floor(Math.random()*22);if(!indices.includes(r))indices.push(r)}
+  const grid=document.getElementById('threeCardsGrid');const final=document.getElementById('threeReadingFinal');
+  grid.innerHTML='';const labels=['Lo Que Heredo','Lo Que Repito','Lo Que Puedo Transformar'];
+  indices.forEach((idx,i)=>{
+    const card=cards[idx];const div=document.createElement('div');div.className='three-card-item';
+    div.innerHTML='<div class="three-card-img">'+getCardImage(idx)+'</div><div class="three-card-num">'+labels[i]+'</div><div class="three-card-name">'+card.nombre+'</div><div class="three-card-concept">'+card.concepto+'</div><div class="three-card-text">'+card.descripcion+'</div>';
+    grid.appendChild(div);setTimeout(()=>div.classList.add('revealed'),300+i*400);
+  });
+  final.innerHTML='<p>Tu lectura muestra un recorrido desde la raíz hacia la conciencia. Lo que aparece como herencia no está destinado a repetirse: puede convertirse en el punto de partida de una historia diferente.</p>';
+  document.getElementById('threeResult').classList.add('active');
+  document.getElementById('threeBtn').style.display='none';
+  setTimeout(()=>document.getElementById('threeResult').scrollIntoView({behavior:'smooth',block:'start'}),500);
+}
+
+const arcansGrid=document.getElementById('arcansGrid');
+cards.forEach((card,i)=>{
+  const div=document.createElement('div');div.className='arcans-card';
+  div.innerHTML='<div class="arcans-card-num">'+romanMap[i]+'</div><div class="arcans-card-name">'+card.nombre+'</div><div class="arcans-card-concept">'+card.concepto+'</div>';
+  div.addEventListener('click',()=>openModal(i));arcansGrid.appendChild(div);
+});
+
+function openModal(idx){
+  const card=cards[idx];const body=document.getElementById('modalBody');
+  body.innerHTML='<div class="modal-img">'+getCardImage(idx)+'</div><div class="modal-num">Arcano '+romanMap[idx]+'</div><div class="modal-name">'+card.nombre+'</div><div class="modal-concept">'+card.concepto+'</div><div class="modal-section"><h4>Descripción</h4><p>'+card.descripcion+'</p></div><div class="modal-section"><h4>La Mirada Sistémica</h4><p>'+card.miradaSistemica+'</p></div><div class="modal-section"><h4>Pregunta para Reflexionar</h4><p>'+card.pregunta+'</p></div><div class="modal-phrase">"'+card.fraseSanadora+'"</div>';
+  document.getElementById('modalOverlay').classList.add('active');document.body.style.overflow='hidden';
+}
+function closeModal(e){if(e&&e.target!==e.currentTarget&&!e.target.classList.contains('modal-close'))return;document.getElementById('modalOverlay').classList.remove('active');document.body.style.overflow=''}
+document.getElementById('modalOverlay').addEventListener('click',closeModal);
+
+document.getElementById('whatsappBtn').addEventListener('click',e=>{e.preventDefault();window.open('https://wa.me/'+whatsappNumber+'?text='+whatsappMessage,'_blank')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal()}});
+</script>
 </body>
 </html>
