@@ -563,11 +563,10 @@ const romanMap = {0:"0",1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI",7:"VII",8:"VIII
 
 function getCardImage(num){
   const card = cards[num];
-  const ph = '<div class="card-placeholder"><div style="position:absolute;inset:20px;border:0.5px solid rgba(201,169,110,0.25)"></div><div style="position:absolute;inset:25px;border:0.5px solid rgba(201,169,110,0.1)"></div><svg viewBox="0 0 100 100" width="40" height="40" style="margin-bottom:0.8rem;opacity:0.3"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="0.5"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(201,169,110,0.3)" stroke-width="0.5"/><line x1="50" y1="20" x2="50" y2="80" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/><line x1="20" y1="50" x2="80" y2="50" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/></svg><div class="card-placeholder-num">'+romanMap[num]+'</div><div class="card-placeholder-name">'+card.nombre+'</div><div class="card-placeholder-concept">'+card.concepto+'</div></div>';
   if(cardImages[num]){
-    return '<img src="'+cardImages[num]+'" alt="'+card.nombre+'" onerror="this.parentElement.innerHTML=\''+ph.replace(/'/g,"\\'")+'\'">';
+    return '<img src="'+cardImages[num]+'" alt="'+card.nombre+'" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="card-placeholder" style="display:none;position:absolute;inset:0"><div class="card-placeholder-num">'+romanMap[num]+'</div><div class="card-placeholder-name">'+card.nombre+'</div><div class="card-placeholder-concept">'+card.concepto+'</div></div>';
   }
-  return ph;
+  return '<div class="card-placeholder"><div class="card-placeholder-num">'+romanMap[num]+'</div><div class="card-placeholder-name">'+card.nombre+'</div><div class="card-placeholder-concept">'+card.concepto+'</div></div>';
 }
 
 const navbar = document.getElementById('navbar');
