@@ -251,6 +251,15 @@ img{max-width:100%;display:block}
 @media(max-width:1024px){.arcans-grid{grid-template-columns:repeat(3,1fr)}.about-grid,.personal-grid{grid-template-columns:1fr;gap:3rem}.about-visual{height:350px}.personal-visual{height:300px}}
 @media(max-width:768px){.nav-links{display:none}.nav-cta{display:none}.hamburger{display:flex}.arcans-grid{grid-template-columns:repeat(2,1fr)}.three-dims{grid-template-columns:1fr;gap:1.5rem}.three-cards-grid{grid-template-columns:1fr;gap:1.5rem}.hero-title{letter-spacing:0.12em}.footer-inner{flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}.journey-step{gap:1rem}.modal-content{padding:2rem 1.5rem}}
 @media(max-width:480px){.arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.8rem}.arcans-card{padding:1rem 0.5rem}.container{padding:0 1.2rem}.card-reveal-image{width:180px;height:280px}}
+
+.lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.92);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(10px);cursor:zoom-out}
+.lightbox.active{opacity:1;pointer-events:all}
+.lightbox img{max-width:85vw;max-height:85vh;object-fit:contain;transform:scale(0.9);opacity:0;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);border:1px solid rgba(201,169,110,0.2)}
+.lightbox.active img{transform:scale(1);opacity:1}
+.lightbox-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:2rem;cursor:pointer;transition:color 0.3s;z-index:10}
+.lightbox-close:hover{color:var(--gold)}
+.lightbox-name{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:1.2rem;color:rgba(255,255,255,0.7);text-align:center;white-space:nowrap}
+.arcans-card img,.three-card-img img,.card-reveal-image img{cursor:zoom-in}
 </style>
 </head>
 <body>
@@ -375,6 +384,11 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-name" id="lightboxName"></div>
+</div>
 <div class="particles" id="particles"></div>
 
 <section class="section-three" id="three">
@@ -640,7 +654,25 @@ function closeModal(e){if(e&&e.target!==e.currentTarget&&!e.target.classList.con
 document.getElementById('modalOverlay').addEventListener('click',closeModal);
 
 document.getElementById('whatsappBtn').addEventListener('click',e=>{e.preventDefault();window.open('https://wa.me/'+whatsappNumber+'?text='+whatsappMessage,'_blank')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal();closeLightbox()}});
+
+function openLightbox(src,name){
+  document.getElementById('lightboxImg').src=src;
+  document.getElementById('lightboxName').textContent=name;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('click',e=>{
+  const img=e.target;
+  if(img.tagName==='IMG'&&img.style.cursor==='zoom-in'){
+    e.stopPropagation();
+    openLightbox(img.src,img.alt);
+  }
+});
 </script>
 </body>
 </html>
