@@ -248,9 +248,101 @@ img{max-width:100%;display:block}
 .back-top.visible{opacity:1;pointer-events:all}
 .back-top:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
 
-@media(max-width:1024px){.arcans-grid{grid-template-columns:repeat(3,1fr)}.about-grid,.personal-grid{grid-template-columns:1fr;gap:3rem}.about-visual{height:350px}.personal-visual{height:300px}}
-@media(max-width:768px){.nav-links{display:none}.nav-cta{display:none}.hamburger{display:flex}.arcans-grid{grid-template-columns:repeat(2,1fr)}.three-dims{grid-template-columns:1fr;gap:1.5rem}.three-cards-grid{grid-template-columns:1fr;gap:1.5rem}.hero-title{letter-spacing:0.12em}.footer-inner{flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}.journey-step{gap:1rem}.modal-content{padding:2rem 1.5rem}}
-@media(max-width:480px){.arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.8rem}.arcans-card{padding:1rem 0.5rem}.container{padding:0 1.2rem}.card-reveal-image{width:180px;height:280px}}
+@media(max-width:1024px){
+  .arcans-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid,.personal-grid{grid-template-columns:1fr;gap:3rem}
+  .about-visual{height:350px}
+  .personal-visual{height:250px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:flex}
+  .hero{min-height:600px}
+  .hero-title{font-size:clamp(2.5rem,10vw,4rem);letter-spacing:0.12em}
+  .hero-subtitle{font-size:0.6rem;letter-spacing:0.25em}
+  .hero-tagline{font-size:1rem}
+  .hero-desc{font-size:0.8rem;padding:0 1rem}
+  .hero-btn{padding:0.8rem 2rem;font-size:0.65rem}
+  .section-about{padding:5rem 0}
+  .about-text h2{font-size:1.8rem}
+  .about-text p{font-size:0.85rem}
+  .about-visual{height:280px}
+  .section-consult{padding:4rem 0 6rem}
+  .consult-header h2{font-size:1.8rem}
+  .consult-input{font-size:0.9rem;padding:1rem}
+  .three-header h2{font-size:1.8rem}
+  .three-dims{grid-template-columns:1fr;gap:1rem}
+  .three-dim{padding:1.5rem 1rem}
+  .three-cards-grid{grid-template-columns:1fr;gap:1.2rem}
+  .three-card-img{width:160px;height:240px}
+  .arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.8rem}
+  .arcans-card{padding:1rem 0.5rem}
+  .arcans-card-num{font-size:1.3rem}
+  .arcans-card-name{font-size:0.85rem}
+  .section-journey{padding:4rem 0 5rem}
+  .journey-header h2{font-size:1.8rem}
+  .journey-step{gap:1rem;padding-bottom:2rem}
+  .journey-num{width:36px;height:36px;font-size:0.75rem}
+  .journey-info h3{font-size:1rem}
+  .journey-info p{font-size:0.75rem}
+  .journey-text p{font-size:0.95rem}
+  .section-personal{padding:4rem 0 5rem}
+  .personal-text h2{font-size:1.8rem}
+  .personal-text>p{font-size:0.85rem}
+  .personal-highlight{padding:1.5rem}
+  .personal-highlight h3{font-size:1.3rem}
+  .personal-visual{height:150px}
+  .section-creator{padding:4rem 0 5rem}
+  .creator-content h2{font-size:1.3rem}
+  .creator-content>p{font-size:0.85rem}
+  .creator-question{font-size:0.8rem;padding:0.4rem 0.8rem}
+  .section-closing{padding:5rem 0}
+  .closing-text h2{font-size:1.3rem}
+  .closing-btn{padding:0.8rem 2rem;font-size:0.65rem}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:1rem}
+  .modal-content{padding:2rem 1.5rem;max-height:90vh}
+  .modal-name{font-size:1.6rem}
+  .modal-img{width:130px;height:195px}
+  .lightbox img{max-width:92vw;max-height:80vh}
+  .lightbox-name{font-size:1rem;bottom:1.5rem}
+  .card-reveal{max-width:90%}
+  .card-reveal-name{font-size:1.5rem}
+  .card-reveal-image{width:200px;height:300px}
+}
+@media(max-width:480px){
+  .container{padding:0 1.2rem}
+  .hero{min-height:550px}
+  .hero-title{font-size:2.2rem;letter-spacing:0.1em}
+  .hero-subtitle{font-size:0.55rem;letter-spacing:0.2em}
+  .hero-tagline{font-size:0.9rem}
+  .hero-desc{font-size:0.75rem}
+  .section-about,.section-consult,.section-journey,.section-personal,.section-creator{padding:3rem 0}
+  .about-text h2,.consult-header h2,.three-header h2,.journey-header h2,.personal-text h2{font-size:1.5rem}
+  .about-quote{font-size:1rem;padding-left:1rem}
+  .arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.6rem}
+  .arcans-card{padding:0.8rem 0.4rem}
+  .arcans-card-num{font-size:1.1rem}
+  .arcans-card-name{font-size:0.75rem}
+  .arcans-card-concept{font-size:0.5rem}
+  .three-card-img{width:140px;height:210px}
+  .three-card-text{font-size:0.72rem}
+  .personal-highlight{padding:1.2rem}
+  .personal-list li{font-size:0.8rem}
+  .creator-questions{gap:0.5rem}
+  .creator-question{font-size:0.7rem;padding:0.3rem 0.6rem}
+  .closing-text h2{font-size:1.1rem}
+  .section-closing{padding:4rem 0}
+  .footer{padding:2rem 0}
+  .footer-logo{font-size:1rem}
+  .card-reveal-image{width:170px;height:260px}
+  .card-reveal-interpretation{font-size:0.8rem}
+  .card-reveal-section p{font-size:0.78rem}
+  .card-reveal-phrase{font-size:0.95rem}
+  .lightbox-name{font-size:0.85rem;bottom:1rem}
+}
 
 .lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.92);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(10px);cursor:zoom-out}
 .lightbox.active{opacity:1;pointer-events:all}
