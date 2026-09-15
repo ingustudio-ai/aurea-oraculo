@@ -563,10 +563,7 @@ const romanMap = {0:"0",1:"I",2:"II",3:"III",4:"IV",5:"V",6:"VI",7:"VII",8:"VIII
 
 function getCardImage(num){
   const card = cards[num];
-  if(cardImages[num]){
-    return '<img src="'+cardImages[num]+'" alt="'+card.nombre+'" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="card-placeholder" style="display:none;position:absolute;inset:0"><div class="card-placeholder-num">'+romanMap[num]+'</div><div class="card-placeholder-name">'+card.nombre+'</div><div class="card-placeholder-concept">'+card.concepto+'</div></div>';
-  }
-  return '<div class="card-placeholder"><div class="card-placeholder-num">'+romanMap[num]+'</div><div class="card-placeholder-name">'+card.nombre+'</div><div class="card-placeholder-concept">'+card.concepto+'</div></div>';
+  return '<img src="images/aurea-'+String(num).padStart(2,'0')+'.jpg" alt="'+card.nombre+'" style="width:100%;height:100%;object-fit:cover">';
 }
 
 const navbar = document.getElementById('navbar');
