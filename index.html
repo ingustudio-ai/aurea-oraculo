@@ -737,20 +737,6 @@ function closeModal(e){if(e&&e.target!==e.currentTarget&&!e.target.classList.con
 document.getElementById('modalOverlay').addEventListener('click',closeModal);
 
 document.getElementById('whatsappBtn').addEventListener('click',e=>{e.preventDefault();window.open('https://wa.me/'+whatsappNumber+'?text='+whatsappMessage,'_blank')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal()}});
-
-function openLightbox(src,name,showName){
-  document.getElementById('lightboxImg').src=src;
-  const nameEl=document.getElementById('lightboxName');
-  if(showName!==false){nameEl.textContent=name;nameEl.style.display='block'}
-  else{nameEl.style.display='none'}
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('active');
-  document.body.style.overflow='';
-}
 document.addEventListener('click',e=>{
   const img=e.target;
   if(img.tagName==='IMG'&&img.dataset.lightbox&&!img.closest('.arcans-card')){
@@ -759,7 +745,7 @@ document.addEventListener('click',e=>{
   }
 });
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape')closeLightbox();
+  if(e.key==='Escape'){closeCard();closeModal();closeLightbox()}
   if(document.getElementById('lightbox').classList.contains('active')){
     if(e.key==='ArrowLeft')prevImage();
     if(e.key==='ArrowRight')nextImage();
