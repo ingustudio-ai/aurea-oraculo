@@ -72,20 +72,10 @@ img{max-width:100%;display:block}
 @keyframes spherePulse{0%,100%{box-shadow:0 0 20px rgba(201,169,110,0.4),0 0 60px rgba(201,169,110,0.15)}50%{box-shadow:0 0 30px rgba(201,169,110,0.6),0 0 80px rgba(201,169,110,0.25)}}
 
 .section-about{padding:8rem 0;background:var(--ivory)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.about-text h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:2rem;line-height:1.2;color:var(--black)}
-.about-text p{font-size:0.9rem;color:var(--stone);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
-.about-quote{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--gold-mate);border-left:2px solid var(--gold);padding-left:1.5rem;margin-top:2rem;line-height:1.6}
-.about-visual{position:relative;height:500px;display:flex;align-items:center;justify-content:center}
-.about-tree{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.about-tree svg{width:80%;height:80%;opacity:0.12}
-.about-sphere{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,var(--gold-light),var(--gold));box-shadow:0 0 40px rgba(201,169,110,0.3);animation:spherePulse 4s ease-in-out infinite}
-.about-photo{position:absolute;background:var(--white-warm);border:1px solid rgba(201,169,110,0.15);overflow:hidden}
-.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05),transparent)}
-.about-photo-1{width:140px;height:180px;top:10%;left:5%;transform:rotate(-3deg)}
-.about-photo-2{width:120px;height:160px;top:15%;right:8%;transform:rotate(2deg)}
-.about-photo-3{width:130px;height:170px;bottom:10%;left:15%;transform:rotate(1deg)}
-.about-photo-4{width:110px;height:150px;bottom:15%;right:12%;transform:rotate(-2deg)}
+.about-content{max-width:700px;margin:0 auto;text-align:center}
+.about-content h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:2rem;line-height:1.2;color:var(--black)}
+.about-content p{font-size:0.95rem;color:var(--stone);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.about-quote{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--gold-mate);border-top:1px solid rgba(201,169,110,0.2);border-bottom:1px solid rgba(201,169,110,0.2);padding:1.5rem 0;margin-top:2rem;line-height:1.6}
 
 .banner-section{position:relative;height:50vh;min-height:350px;max-height:500px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .banner-img{position:absolute;inset:0;background:url('images/aurea-00.jpg') center center/cover no-repeat;z-index:1;filter:brightness(0.65) contrast(1.1)}
@@ -191,21 +181,6 @@ img{max-width:100%;display:block}
 .modal-section p{font-size:0.85rem;line-height:1.7;color:var(--stone);font-weight:300}
 .modal-phrase{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold-mate);padding:1rem 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);text-align:center;line-height:1.5}
 
-.section-journey{padding:6rem 0 8rem;background:var(--white-warm);position:relative}
-.journey-header{text-align:center;margin-bottom:4rem}
-.journey-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:0.8rem}
-.journey-header p{font-size:0.9rem;color:var(--stone);font-weight:300}
-.journey-line{position:relative;max-width:700px;margin:0 auto}
-.journey-step{display:flex;align-items:flex-start;gap:2rem;position:relative;padding-bottom:2.5rem}
-.journey-step:last-child{padding-bottom:0}
-.journey-step::before{content:'';position:absolute;left:19px;top:40px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,169,110,0.2))}
-.journey-step:last-child::before{display:none}
-.journey-num{width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.85rem;color:var(--gold);flex-shrink:0;position:relative;z-index:1;background:var(--white-warm)}
-.journey-info h3{font-family:var(--serif);font-size:1.1rem;margin-bottom:0.3rem}
-.journey-info p{font-size:0.8rem;color:var(--stone);font-weight:300;line-height:1.6}
-.journey-text{max-width:600px;margin:4rem auto 0;text-align:center}
-.journey-text p{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--stone);line-height:1.7}
-
 .section-personal{padding:6rem 0 8rem;background:var(--ivory);position:relative}
 .section-personal::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold))}
 .personal-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
@@ -257,7 +232,6 @@ img{max-width:100%;display:block}
 @media(max-width:1024px){
   .arcans-grid{grid-template-columns:repeat(3,1fr)}
   .about-grid,.personal-grid{grid-template-columns:1fr;gap:3rem}
-  .about-visual{height:350px}
   .personal-visual{height:250px}
 }
 @media(max-width:768px){
@@ -272,9 +246,8 @@ img{max-width:100%;display:block}
   .hero-desc{font-size:0.85rem}
   .hero-btn{padding:0.8rem 2rem;font-size:0.65rem}
   .section-about{padding:5rem 0}
-  .about-text h2{font-size:1.8rem}
-  .about-text p{font-size:0.85rem}
-  .about-visual{height:280px}
+  .about-content h2{font-size:1.8rem}
+  .about-content p{font-size:0.85rem}
   .section-consult{padding:4rem 0 6rem}
   .banner-section{height:40vh;min-height:280px}
   .banner-content h2{font-size:1.8rem}
@@ -289,13 +262,6 @@ img{max-width:100%;display:block}
   .arcans-card{padding:1rem 0.5rem}
   .arcans-card-num{font-size:1.3rem}
   .arcans-card-name{font-size:0.85rem}
-  .section-journey{padding:4rem 0 5rem}
-  .journey-header h2{font-size:1.8rem}
-  .journey-step{gap:1rem;padding-bottom:2rem}
-  .journey-num{width:36px;height:36px;font-size:0.75rem}
-  .journey-info h3{font-size:1rem}
-  .journey-info p{font-size:0.75rem}
-  .journey-text p{font-size:0.95rem}
   .section-personal{padding:4rem 0 5rem}
   .personal-text h2{font-size:1.8rem}
   .personal-text>p{font-size:0.85rem}
@@ -327,8 +293,8 @@ img{max-width:100%;display:block}
   .hero-subtitle{font-size:0.6rem;letter-spacing:0.2em}
   .hero-tagline{font-size:1rem}
   .hero-desc{font-size:0.8rem}
-  .section-about,.section-consult,.section-journey,.section-personal,.section-creator{padding:3rem 0}
-  .about-text h2,.three-header h2,.journey-header h2,.personal-text h2{font-size:1.5rem}
+  .section-about,.section-consult,.section-personal,.section-creator{padding:3rem 0}
+  .about-content h2,.three-header h2,.personal-text h2{font-size:1.5rem}
   .about-quote{font-size:1rem;padding-left:1rem}
   .arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.6rem}
   .arcans-card{padding:0.8rem 0.4rem}
@@ -412,42 +378,13 @@ img{max-width:100%;display:block}
 
 <section class="section-about" id="about">
   <div class="container">
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <h2>¿Y si algunas respuestas<br>estuvieran en tu historia?</h2>
-        <p>ÁUREA es un oráculo de 22 arcanos inspirado en la estructura simbólica del Tarot y creado desde una mirada sistémica y ancestral.</p>
-        <p>Cada carta representa un arquetipo que puede aparecer dentro de una historia familiar:</p>
-        <p>una exclusión,<br>un secreto,<br>un vínculo,<br>una ausencia,<br>una repetición,<br>un sacrificio,<br>una ruptura,<br>una transformación.</p>
-        <p>ÁUREA no busca predecir tu futuro.<br>Busca ayudarte a mirar aquello que puede estar influyendo en tu presente.</p>
-        <div class="about-quote">"Cuando podemos mirar nuestra historia,<br>podemos elegir qué hacer con ella."</div>
-      </div>
-      <div class="about-visual">
-        <div class="about-tree">
-          <svg viewBox="0 0 300 400" fill="none" stroke="rgba(201,169,110,0.3)" stroke-width="0.5">
-            <line x1="150" y1="50" x2="150" y2="400"/>
-            <line x1="150" y1="150" x2="100" y2="80"/>
-            <line x1="150" y1="150" x2="200" y2="80"/>
-            <line x1="150" y1="200" x2="80" y2="140"/>
-            <line x1="150" y1="200" x2="220" y2="140"/>
-            <line x1="150" y1="250" x2="70" y2="200"/>
-            <line x1="150" y1="250" x2="230" y2="200"/>
-            <line x1="150" y1="300" x2="90" y2="260"/>
-            <line x1="150" y1="300" x2="210" y2="260"/>
-            <line x1="150" y1="350" x2="100" y2="320"/>
-            <line x1="150" y1="350" x2="200" y2="320"/>
-            <circle cx="150" cy="50" r="3" fill="rgba(201,169,110,0.3)"/>
-            <circle cx="100" cy="80" r="2" fill="rgba(201,169,110,0.2)"/>
-            <circle cx="200" cy="80" r="2" fill="rgba(201,169,110,0.2)"/>
-            <circle cx="80" cy="140" r="2" fill="rgba(201,169,110,0.2)"/>
-            <circle cx="220" cy="140" r="2" fill="rgba(201,169,110,0.2)"/>
-          </svg>
-        </div>
-        <div class="about-sphere"></div>
-        <div class="about-photo about-photo-1"></div>
-        <div class="about-photo about-photo-2"></div>
-        <div class="about-photo about-photo-3"></div>
-        <div class="about-photo about-photo-4"></div>
-      </div>
+    <div class="about-content reveal">
+      <h2>¿Y si algunas respuestas<br>estuvieran en tu historia?</h2>
+      <p>ÁUREA es un oráculo de 22 arcanos inspirado en la estructura simbólica del Tarot y creado desde una mirada sistémica y ancestral.</p>
+      <p>Cada carta representa un arquetipo que puede aparecer dentro de una historia familiar:</p>
+      <p>una exclusión,<br>un secreto,<br>un vínculo,<br>una ausencia,<br>una repetición,<br>un sacrificio,<br>una ruptura,<br>una transformación.</p>
+      <p>ÁUREA no busca predecir tu futuro.<br>Busca ayudarte a mirar aquello que puede estar influyendo en tu presente.</p>
+      <div class="about-quote">"Cuando podemos mirar nuestra historia,<br>podemos elegir qué hacer con ella."</div>
     </div>
   </div>
 </section>
@@ -535,26 +472,6 @@ img{max-width:100%;display:block}
     <div id="modalBody"></div>
   </div>
 </div>
-
-<section class="section-journey" id="journey">
-  <div class="container">
-    <div class="journey-header reveal">
-      <h2>El Viaje de Áurea</h2>
-      <p>Un recorrido simbólico desde la exclusión hacia la integración.</p>
-    </div>
-    <div class="journey-line reveal">
-      <div class="journey-step"><div class="journey-num">0</div><div class="journey-info"><h3>El Errante</h3><p>La Exclusión — el punto de partida, aquello que quedó fuera.</p></div></div>
-      <div class="journey-step"><div class="journey-num">I–V</div><div class="journey-info"><h3>Las Raíces</h3><p>El Origen, la Guardiana, la Matriarca, el Patriarca, el Ancestro. La base de la historia familiar.</p></div></div>
-      <div class="journey-step"><div class="journey-num">VI–X</div><div class="journey-info"><h3>Los Vínculos</h3><p>Los Amantes, el Heredero, el Orden, el Buscador, la Repetición. Las relaciones y patrones que se repiten.</p></div></div>
-      <div class="journey-step"><div class="journey-num">XI–XV</div><div class="journey-info"><h3>La Transformación</h3><p>La Fuerza, el Sacrificio, el Cambio, la Alquimia, la Sombra. El proceso de confrontación y cambio.</p></div></div>
-      <div class="journey-step"><div class="journey-num">XVI–XVIII</div><div class="journey-info"><h3>La Revelación</h3><p>La Torre, la Estrella, la Luna. Los quiebres que revelan lo oculto.</p></div></div>
-      <div class="journey-step"><div class="journey-num">XIX–XXI</div><div class="journey-info"><h3>El Despertar</h3><p>El Sol, el Llamado, el Mundo. La conciencia plena y la integración.</p></div></div>
-    </div>
-    <div class="journey-text reveal">
-      <p>ÁUREA propone un viaje simbólico: de la exclusión al origen, del origen al vínculo, del vínculo a la repetición, de la repetición a la conciencia, y de la conciencia a la integración.</p>
-    </div>
-  </div>
-</section>
 
 <section class="section-personal" id="personal">
   <div class="container">
