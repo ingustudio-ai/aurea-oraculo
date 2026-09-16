@@ -157,13 +157,12 @@ img{max-width:100%;display:block}
 .arcans-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:0.8rem}
 .arcans-header p{font-size:0.9rem;color:var(--stone);font-weight:300}
 .arcans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.arcans-card{border:1px solid rgba(201,169,110,0.12);padding:1.5rem 1rem;text-align:center;cursor:pointer;transition:all 0.4s;position:relative;overflow:hidden;background:rgba(255,255,255,0.4)}
-.arcans-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05),transparent);opacity:0;transition:opacity 0.4s}
+.arcans-card{border:1px solid rgba(201,169,110,0.12);text-align:center;cursor:pointer;transition:all 0.4s;position:relative;overflow:hidden;background:rgba(255,255,255,0.4);aspect-ratio:2/3.2}
+.arcans-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,0.05),transparent);opacity:0;transition:opacity 0.4s;z-index:1}
 .arcans-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.06);border-color:rgba(201,169,110,0.3)}
 .arcans-card:hover::before{opacity:1}
-.arcans-card-num{font-family:var(--serif);font-size:1.6rem;color:var(--gold);font-weight:300;margin-bottom:0.3rem}
-.arcans-card-name{font-family:var(--serif);font-size:0.95rem;margin-bottom:0.2rem}
-.arcans-card-concept{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone-light)}
+.arcans-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.arcans-card:hover img{transform:scale(1.05)}
 
 .modal-overlay{position:fixed;inset:0;background:rgba(10,10,10,0.85);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(8px)}
 .modal-overlay.active{opacity:1;pointer-events:all}
@@ -231,7 +230,7 @@ img{max-width:100%;display:block}
 
 @media(max-width:1024px){
   .arcans-grid{grid-template-columns:repeat(3,1fr)}
-  .about-grid,.personal-grid{grid-template-columns:1fr;gap:3rem}
+  .about-content,.personal-grid{max-width:700px}
   .personal-visual{height:250px}
 }
 @media(max-width:768px){
@@ -665,8 +664,15 @@ function revealThree(){
 const arcansGrid=document.getElementById('arcansGrid');
 cards.forEach((card,i)=>{
   const div=document.createElement('div');div.className='arcans-card';
-  div.innerHTML='<div class="arcans-card-num">'+romanMap[i]+'</div><div class="arcans-card-name">'+card.nombre+'</div><div class="arcans-card-concept">'+card.concepto+'</div>';
-  div.addEventListener('click',()=>openModal(i));arcansGrid.appendChild(div);
+  div.innerHTML='<img src="images/aurea-'+String(i).padStart(2,'0')+'.jpg" alt="'+card.nombre+'" data-lightbox="true">';
+  div.addEventListener('click',e=>{
+    const img=e.target;
+    if(img.tagName==='IMG'){
+      e.stopPropagation();
+      openLightbox(img.src,card.nombre,false);
+    }
+  });
+  arcansGrid.appendChild(div);
 });
 
 function openModal(idx){
@@ -680,9 +686,11 @@ document.getElementById('modalOverlay').addEventListener('click',closeModal);
 document.getElementById('whatsappBtn').addEventListener('click',e=>{e.preventDefault();window.open('https://wa.me/'+whatsappNumber+'?text='+whatsappMessage,'_blank')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal();closeLightbox()}});
 
-function openLightbox(src,name){
+function openLightbox(src,name,showName){
   document.getElementById('lightboxImg').src=src;
-  document.getElementById('lightboxName').textContent=name;
+  const nameEl=document.getElementById('lightboxName');
+  if(showName!==false){nameEl.textContent=name;nameEl.style.display='block'}
+  else{nameEl.style.display='none'}
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow='hidden';
 }
