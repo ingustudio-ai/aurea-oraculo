@@ -320,13 +320,18 @@ img{max-width:100%;display:block}
   .lightbox-name{font-size:0.85rem;bottom:1rem}
 }
 
-.lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.92);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(10px);cursor:zoom-out}
+.lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.95);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;cursor:default}
 .lightbox.active{opacity:1;pointer-events:all}
-.lightbox img{max-width:85vw;max-height:85vh;object-fit:contain;transform:scale(0.9);opacity:0;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);border:1px solid rgba(201,169,110,0.2)}
+.lightbox img{max-width:85vw;max-height:85vh;object-fit:contain;transform:scale(0.9);opacity:0;transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
 .lightbox.active img{transform:scale(1);opacity:1}
 .lightbox-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:2rem;cursor:pointer;transition:color 0.3s;z-index:10}
 .lightbox-close:hover{color:var(--gold)}
 .lightbox-name{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:1.2rem;color:rgba(255,255,255,0.7);text-align:center;white-space:nowrap}
+.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(201,169,110,0.3);color:var(--gold);width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;transition:all 0.3s;z-index:10;border-radius:50%}
+.lightbox-arrow:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.lightbox-arrow.prev{left:1.5rem}
+.lightbox-arrow.next{right:1.5rem}
+.lightbox-counter{position:absolute;bottom:2rem;right:2rem;font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;font-family:var(--sans)}
 .arcans-card img,.three-card-img img,.card-reveal-image img{cursor:zoom-in}
 </style>
 </head>
@@ -427,10 +432,13 @@ img{max-width:100%;display:block}
   </div>
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-arrow prev" onclick="prevImage()">&#8249;</button>
   <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-arrow next" onclick="nextImage()">&#8250;</button>
   <div class="lightbox-name" id="lightboxName"></div>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 <div class="particles" id="particles"></div>
 
@@ -661,6 +669,51 @@ function revealThree(){
   setTimeout(()=>document.getElementById('threeResult').scrollIntoView({behavior:'smooth',block:'start'}),500);
 }
 
+let lightboxImages=[];
+let lightboxCurrentIndex=0;
+let lightboxShowName=true;
+
+function openLightbox(src,name,showName,imagesList,index){
+  if(imagesList){
+    lightboxImages=imagesList;
+    lightboxCurrentIndex=index||0;
+    lightboxShowName=showName!==false;
+  }else{
+    lightboxImages=[{src:src,name:name}];
+    lightboxCurrentIndex=0;
+    lightboxShowName=showName!==false;
+  }
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function updateLightbox(){
+  const item=lightboxImages[lightboxCurrentIndex];
+  document.getElementById('lightboxImg').src=item.src;
+  const nameEl=document.getElementById('lightboxName');
+  if(lightboxShowName){nameEl.textContent=item.name;nameEl.style.display='block'}
+  else{nameEl.style.display='none'}
+  const counter=document.getElementById('lightboxCounter');
+  if(lightboxImages.length>1){counter.textContent=(lightboxCurrentIndex+1)+' / '+lightboxImages.length;counter.style.display='block'}
+  else{counter.style.display='none'}
+  const arrows=document.querySelectorAll('.lightbox-arrow');
+  arrows.forEach(a=>{a.style.display=lightboxImages.length>1?'flex':'none'});
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow='';
+}
+function prevImage(){
+  lightboxCurrentIndex=(lightboxCurrentIndex-1+lightboxImages.length)%lightboxImages.length;
+  updateLightbox();
+}
+function nextImage(){
+  lightboxCurrentIndex=(lightboxCurrentIndex+1)%lightboxImages.length;
+  updateLightbox();
+}
+
+const arcansImages=cards.map((c,i)=>({src:'images/aurea-'+String(i).padStart(2,'0')+'.jpg',name:c.nombre}));
+
 const arcansGrid=document.getElementById('arcansGrid');
 cards.forEach((card,i)=>{
   const div=document.createElement('div');div.className='arcans-card';
@@ -669,7 +722,7 @@ cards.forEach((card,i)=>{
     const img=e.target;
     if(img.tagName==='IMG'){
       e.stopPropagation();
-      openLightbox(img.src,card.nombre,false);
+      openLightbox(img.src,card.nombre,false,arcansImages,i);
     }
   });
   arcansGrid.appendChild(div);
@@ -684,7 +737,7 @@ function closeModal(e){if(e&&e.target!==e.currentTarget&&!e.target.classList.con
 document.getElementById('modalOverlay').addEventListener('click',closeModal);
 
 document.getElementById('whatsappBtn').addEventListener('click',e=>{e.preventDefault();window.open('https://wa.me/'+whatsappNumber+'?text='+whatsappMessage,'_blank')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal();closeLightbox()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCard();closeModal()}});
 
 function openLightbox(src,name,showName){
   document.getElementById('lightboxImg').src=src;
@@ -700,9 +753,16 @@ function closeLightbox(){
 }
 document.addEventListener('click',e=>{
   const img=e.target;
-  if(img.tagName==='IMG'&&img.dataset.lightbox){
+  if(img.tagName==='IMG'&&img.dataset.lightbox&&!img.closest('.arcans-card')){
     e.stopPropagation();
     openLightbox(img.src,img.alt);
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeLightbox();
+  if(document.getElementById('lightbox').classList.contains('active')){
+    if(e.key==='ArrowLeft')prevImage();
+    if(e.key==='ArrowRight')nextImage();
   }
 });
 </script>
