@@ -79,17 +79,19 @@ img{max-width:100%;display:block}
 .banner-content{position:relative;z-index:2;text-align:center;padding:0 2rem}
 .banner-content h2{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;color:#fff;line-height:1.15;margin-bottom:0.5rem}
 .banner-content p{font-size:0.85rem;color:rgba(255,255,255,0.5);font-weight:300;letter-spacing:0.05em}
-.section-consult{padding:6rem 0 8rem;background:var(--ivory);position:relative}
-.section-consult::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold))}
-.consult-header{text-align:center;margin-bottom:3rem}
-.consult-header h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;margin-bottom:0.8rem}
-.consult-header p{font-size:0.9rem;color:var(--stone);font-weight:300}
-.consult-form{max-width:600px;margin:0 auto;text-align:center}
-.consult-input{width:100%;padding:1.2rem 1.5rem;font-family:var(--sans);font-size:0.95rem;border:1px solid rgba(201,169,110,0.25);background:rgba(255,255,255,0.6);color:var(--black);outline:none;transition:border-color 0.3s;margin-bottom:1.5rem;font-weight:300;resize:none}
-.consult-input::placeholder{color:var(--stone-light);font-style:italic}
-.consult-input:focus{border-color:var(--gold)}
-.consult-btn{display:inline-block;padding:0.9rem 3rem;background:var(--black);color:var(--gold);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;border:1px solid var(--black)}
-.consult-btn:hover{background:transparent;color:var(--black)}
+.section-consult{padding:7rem 0;background:var(--black);position:relative;overflow:hidden}
+.section-consult::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.section-consult::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.consult-inner{text-align:center;max-width:700px;margin:0 auto}
+.consult-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:#fff;margin-bottom:0.8rem;letter-spacing:0.05em}
+.consult-sub{font-size:1rem;color:rgba(255,255,255,0.45);font-weight:300;margin-bottom:3rem}
+.consult-form{max-width:600px;margin:0 auto}
+.consult-input{width:100%;padding:1.5rem 2rem;font-family:var(--sans);font-size:1.05rem;border:1px solid rgba(201,169,110,0.25);background:rgba(255,255,255,0.05);color:#fff;outline:none;transition:border-color 0.3s;margin-bottom:2rem;font-weight:300;resize:none;border-radius:0;text-align:center}
+.consult-input::placeholder{color:rgba(255,255,255,0.25);font-style:italic}
+.consult-input:focus{border-color:var(--gold);background:rgba(201,169,110,0.03)}
+.consult-btn{display:inline-block;padding:1.2rem 4rem;background:var(--gold);color:var(--black);font-size:0.8rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:600;transition:all 0.4s;border:1px solid var(--gold);cursor:pointer}
+.consult-btn:hover{background:transparent;color:var(--gold)}
+.consult-note{font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:1.5rem;letter-spacing:0.1em}
 
 .card-overlay{position:fixed;inset:0;background:rgba(10,10,10,0.85);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.5s;backdrop-filter:blur(8px)}
 .card-overlay.active{opacity:1;pointer-events:all}
@@ -372,36 +374,21 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<section class="section-about" id="about">
-  <div class="container">
-    <div class="about-content reveal">
-      <h2>¿Y si algunas respuestas<br>estuvieran en tu historia?</h2>
-      <p>ÁUREA es un oráculo de 22 arcanos inspirado en la estructura simbólica del Tarot y creado desde una mirada sistémica y ancestral.</p>
-      <p>Cada carta representa un arquetipo que puede aparecer dentro de una historia familiar:</p>
-      <p>una exclusión,<br>un secreto,<br>un vínculo,<br>una ausencia,<br>una repetición,<br>un sacrificio,<br>una ruptura,<br>una transformación.</p>
-      <p>ÁUREA no busca predecir tu futuro.<br>Busca ayudarte a mirar aquello que puede estar influyendo en tu presente.</p>
-      <div class="about-quote">"Cuando podemos mirar nuestra historia,<br>podemos elegir qué hacer con ella."</div>
-    </div>
-  </div>
-</section>
-
-<section class="banner-section">
-  <div class="banner-img"></div>
-  <div class="banner-content">
-    <h2>Consultá Áurea</h2>
-    <p>Hacé una pregunta. Dejá que una carta abra una nueva mirada.</p>
-  </div>
-</section>
-
 <section class="section-consult" id="consult">
   <div class="container">
-    <div class="consult-form reveal">
-      <textarea class="consult-input" id="questionInput" rows="3" placeholder="Ejemplo:&#10;&quot;¿Qué necesito comprender sobre mi relación con mi familia?&quot;"></textarea>
-      <br>
-      <button class="consult-btn" id="revealBtn" onclick="revealCard()">Revelar Mi Carta</button>
+    <div class="consult-inner reveal">
+      <h2 class="consult-title">Consultá Áurea</h2>
+      <p class="consult-sub">Hacé una pregunta. Dejá que una carta abra una nueva mirada.</p>
+      <div class="consult-form">
+        <textarea class="consult-input" id="questionInput" rows="3" placeholder="Ejemplo:&#10;&quot;¿Qué necesito comprender sobre mi relación con mi familia?&quot;"></textarea>
+        <button class="consult-btn" id="revealBtn" onclick="revealCard()">Revelar Mi Carta</button>
+      </div>
+      <p class="consult-note">Tu primera consulta es gratuita</p>
     </div>
   </div>
 </section>
+
+<section class="section-about" id="about">
 
 <div class="card-overlay" id="cardOverlay">
   <div class="card-reveal" id="cardReveal">
