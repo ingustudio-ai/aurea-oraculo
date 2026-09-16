@@ -172,18 +172,21 @@ img{max-width:100%;display:block}
 .modal-section p{font-size:0.85rem;line-height:1.7;color:var(--stone);font-weight:300}
 .modal-phrase{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold-mate);padding:1rem 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);text-align:center;line-height:1.5}
 
-.section-personal{padding:6rem 0 8rem;background:var(--ivory);position:relative}
-.section-personal::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold))}
-.personal-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.personal-text h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;margin-bottom:1.5rem;line-height:1.2}
-.personal-text>p{font-size:0.9rem;color:var(--stone);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
-.personal-list{list-style:none;margin-bottom:2rem}
-.personal-list li{font-size:0.85rem;color:var(--stone);padding:0.4rem 0;padding-left:1.2rem;position:relative;font-weight:300}
-.personal-list li::before{content:'';position:absolute;left:0;top:50%;width:4px;height:4px;background:var(--gold);border-radius:50%;transform:translateY(-50%)}
-.personal-highlight{background:var(--black);color:#fff;padding:2.5rem;text-align:center;margin-bottom:2rem}
-.personal-highlight h3{font-family:var(--serif);font-size:1.6rem;font-weight:300;margin-bottom:0.8rem}
-.personal-highlight p{font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.7}
-.personal-btn{display:inline-block;padding:0.9rem 2.5rem;background:var(--gold);color:var(--black);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;border:1px solid var(--gold)}
+.section-personal{padding:8rem 0;background:linear-gradient(180deg,var(--black) 0%,#0d0b08 50%,var(--black) 100%);position:relative;overflow:hidden}
+.section-personal::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.section-personal::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.personal-center{text-align:center;max-width:750px;margin:0 auto}
+.personal-label{font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;font-weight:500}
+.personal-title{font-family:var(--serif);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:#fff;margin-bottom:1.2rem;line-height:1.1;letter-spacing:0.02em}
+.personal-sub{font-size:1.05rem;color:rgba(255,255,255,0.5);font-weight:300;margin-bottom:3rem;line-height:1.7;max-width:550px;margin-left:auto;margin-right:auto}
+.personal-list{list-style:none;margin-bottom:3rem;display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem 1.5rem}
+.personal-list li{font-size:0.8rem;color:rgba(255,255,255,0.55);padding:0.5rem 1.2rem;border:1px solid rgba(201,169,110,0.15);font-weight:300;letter-spacing:0.05em;transition:border-color 0.3s}
+.personal-list li:hover{border-color:var(--gold)}
+.personal-divider{width:50px;height:1px;background:var(--gold);margin:0 auto 2.5rem;opacity:0.4}
+.personal-highlight{margin-bottom:3rem}
+.personal-highlight-title{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;color:var(--gold);margin-bottom:0.6rem}
+.personal-highlight-desc{font-size:0.9rem;color:rgba(255,255,255,0.4);font-weight:300}
+.personal-btn{display:inline-block;padding:1.1rem 3.5rem;background:var(--gold);color:var(--black);font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:600;transition:all 0.4s;border:1px solid var(--gold)}
 .personal-btn:hover{background:transparent;color:var(--gold)}
 .personal-visual{position:relative;height:450px;display:flex;align-items:center;justify-content:center}
 
@@ -250,9 +253,9 @@ img{max-width:100%;display:block}
   .arcans-card{padding:1rem 0.5rem}
   .arcans-card-num{font-size:1.3rem}
   .arcans-card-name{font-size:0.85rem}
-  .section-personal{padding:4rem 0 5rem}
-  .personal-text h2{font-size:1.8rem}
-  .personal-text>p{font-size:0.85rem}
+  .section-personal{padding:5rem 0}
+  .personal-title{font-size:clamp(2rem,5vw,3rem)}
+  .personal-sub{font-size:0.95rem}
   .personal-highlight{padding:1.5rem}
   .personal-highlight h3{font-size:1.3rem}
   .personal-visual{height:150px}
@@ -282,7 +285,9 @@ img{max-width:100%;display:block}
   .hero-tagline{font-size:1rem}
   .hero-desc{font-size:0.8rem}
   .section-about,.section-consult,.section-personal,.section-creator{padding:3rem 0}
-  .about-content h2,.three-header h2,.personal-text h2{font-size:1.5rem}
+  .about-content h2,.three-header h2{font-size:1.5rem}
+  .personal-title{font-size:2rem}
+  .personal-sub{font-size:0.85rem}
   .about-quote{font-size:1rem;padding-left:1rem}
   .arcans-grid{grid-template-columns:repeat(2,1fr);gap:0.6rem}
   .arcans-card{padding:0.8rem 0.4rem}
@@ -449,31 +454,26 @@ img{max-width:100%;display:block}
 
 <section class="section-personal" id="personal">
   <div class="container">
-    <div class="personal-grid reveal">
-      <div class="personal-text">
-        <h2>¿Querés ir más profundo?</h2>
-        <p>Una carta puede mostrarte algo. Una lectura puede ayudarte a comprenderlo.</p>
-        <p>Si sentís que una carta tocó una historia que necesitás mirar con mayor profundidad, podés realizar una lectura personalizada de ÁUREA conmigo.</p>
-        <p style="margin-bottom:1rem">La sesión combina:</p>
-        <ul class="personal-list">
-          <li>Los 22 arcanos de ÁUREA</li>
-          <li>Mirada sistémica</li>
-          <li>Historia familiar</li>
-          <li>Patrones y repeticiones</li>
-          <li>Vínculos</li>
-          <li>Preguntas de conciencia</li>
-          <li>Ejercicios de integración</li>
-          <li>Frases sanadoras</li>
-        </ul>
-        <div class="personal-highlight">
-          <h3>Lectura Personalizada ÁUREA</h3>
-          <p>Un espacio individual para explorar aquello que tu consulta está intentando mostrarte.</p>
-        </div>
-        <a href="#" class="personal-btn" id="whatsappBtn">Quiero Reservar Mi Lectura</a>
+    <div class="personal-center reveal">
+      <p class="personal-label">Lectura Personalizada</p>
+      <h2 class="personal-title">¿Querés ir más profundo?</h2>
+      <p class="personal-sub">Una carta puede mostrarte algo. Una lectura puede ayudarte a comprenderlo.</p>
+      <ul class="personal-list">
+        <li>22 Arcanos de ÁUREA</li>
+        <li>Mirada sistémica</li>
+        <li>Historia familiar</li>
+        <li>Patrones y repeticiones</li>
+        <li>Vínculos</li>
+        <li>Preguntas de conciencia</li>
+        <li>Ejercicios de integración</li>
+        <li>Frases sanadoras</li>
+      </ul>
+      <div class="personal-divider"></div>
+      <div class="personal-highlight">
+        <h3 class="personal-highlight-title">Lectura Personalizada ÁUREA</h3>
+        <p class="personal-highlight-desc">Un espacio individual para explorar aquello que tu consulta está intentando mostrarte.</p>
       </div>
-      <div class="personal-visual">
-        <div class="about-sphere"></div>
-      </div>
+      <a href="#" class="personal-btn" id="whatsappBtn">Quiero Reservar Mi Lectura</a>
     </div>
   </div>
 </section>
