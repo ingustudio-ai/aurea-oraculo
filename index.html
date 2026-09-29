@@ -223,6 +223,32 @@ img{max-width:100%;display:block}
 .back-top.visible{opacity:1;pointer-events:all}
 .back-top:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
 
+#aurea-launch{position:relative;width:100%;overflow:hidden;padding:100px 24px;background:radial-gradient(circle at 50% 35%,rgba(142,106,184,0.20),transparent 35%),radial-gradient(circle at 15% 85%,rgba(216,182,106,0.08),transparent 30%),linear-gradient(135deg,#08060c 0%,#100b16 50%,#08060c 100%);color:#f4efe7;font-family:Georgia,"Times New Roman",serif}
+.aurea-launch-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center}
+.aurea-launch-glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(5px)}
+.aurea-glow-1{width:450px;height:450px;top:-180px;left:50%;transform:translateX(-50%);border:1px solid rgba(216,182,106,.08);box-shadow:0 0 100px rgba(142,106,184,.08),inset 0 0 80px rgba(216,182,106,.04)}
+.aurea-glow-2{width:260px;height:260px;bottom:-150px;right:-50px;border:1px solid rgba(216,182,106,.06)}
+.aurea-launch-eyebrow{margin-bottom:22px;color:#d8b66a;font-size:11px;line-height:1.4;letter-spacing:.28em;text-transform:uppercase}
+.aurea-launch-title{margin:0 0 24px;font-size:clamp(45px,7vw,78px);line-height:.98;font-weight:400;color:#f0d695;text-wrap:balance}
+.aurea-launch-text{max-width:670px;margin:0 auto 35px;color:#bdb4c3;font-size:clamp(17px,2vw,20px);line-height:1.75}
+.aurea-launch-date{display:flex;flex-direction:column;gap:8px;margin-bottom:35px;color:#8f8493;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.aurea-launch-date strong{color:#f1d99a;font-size:18px;letter-spacing:.04em;text-transform:none;font-weight:400}
+.aurea-countdown{display:flex;align-items:center;justify-content:center;gap:11px;margin:35px auto 38px}
+.aurea-time-box{width:108px;padding:17px 10px 14px;border:1px solid rgba(216,182,106,.22);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));backdrop-filter:blur(12px);box-shadow:inset 0 0 25px rgba(216,182,106,.025),0 20px 50px rgba(0,0,0,.18)}
+.aurea-time-box span{display:block;color:#f1d99a;font-size:clamp(30px,4vw,42px);line-height:1;letter-spacing:.04em}
+.aurea-time-box small{display:block;margin-top:9px;color:#8f8493;font-size:9px;letter-spacing:.18em}
+.aurea-time-separator{color:rgba(216,182,106,.48);font-size:28px;transform:translateY(-9px)}
+.aurea-state{max-width:620px;margin:0 auto;padding:32px;border:1px solid rgba(216,182,106,.17);border-radius:23px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));backdrop-filter:blur(15px)}
+.aurea-state-title{margin-bottom:11px;color:#f1d99a;font-size:14px;letter-spacing:.18em}
+.aurea-state p{max-width:500px;margin:0 auto 24px;color:#bdb4c3;font-size:15px;line-height:1.7}
+.aurea-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 27px;border-radius:999px;text-decoration:none;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .25s ease,box-shadow .25s ease,opacity .25s ease}
+.aurea-button-primary{color:#19121b;background:linear-gradient(135deg,#f0d695,#d8b66a);box-shadow:0 12px 35px rgba(216,182,106,.15)}
+.aurea-button-primary:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(216,182,106,.23)}
+.aurea-live-title{color:#f0d695;animation:aureaPulse 2.5s ease-in-out infinite}
+@keyframes aureaPulse{0%,100%{opacity:1}50%{opacity:.65}}
+.aurea-launch-state-hidden{display:none}
+.aurea-microcopy{margin-top:35px;color:#756b79;font-size:12px;font-style:italic}
+
 @media(max-width:1024px){
   .arcans-grid{grid-template-columns:repeat(3,1fr)}
   .about-content,.personal-grid{max-width:700px}
@@ -302,6 +328,14 @@ img{max-width:100%;display:block}
   .creator-question{font-size:0.7rem;padding:0.3rem 0.6rem}
   .closing-text h2{font-size:1.1rem}
   .section-closing{padding:4rem 0}
+  #aurea-launch{padding:75px 18px}
+  .aurea-countdown{gap:6px}
+  .aurea-time-box{width:72px;padding:14px 6px 12px}
+  .aurea-time-box span{font-size:27px}
+  .aurea-time-box small{font-size:8px}
+  .aurea-time-separator{font-size:20px}
+  .aurea-state{padding:25px 18px}
+  .aurea-launch-date strong{font-size:16px}
   .footer{padding:2rem 0}
   .footer-logo{font-size:1rem}
   .card-reveal-image{width:170px;height:260px}
@@ -309,6 +343,13 @@ img{max-width:100%;display:block}
   .card-reveal-section p{font-size:0.78rem}
   .card-reveal-phrase{font-size:0.95rem}
   .lightbox-name{font-size:0.85rem;bottom:1rem}
+}
+@media(max-width:430px){
+  .aurea-countdown{gap:4px}
+  .aurea-time-box{width:63px}
+  .aurea-time-box span{font-size:23px}
+  .aurea-time-separator{font-size:17px}
+  .aurea-button{width:100%}
 }
 
 .lightbox{position:fixed;inset:0;background:rgba(10,10,10,0.95);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;cursor:default}
@@ -475,6 +516,37 @@ img{max-width:100%;display:block}
       </div>
       <a href="#" class="personal-btn" id="whatsappBtn">Quiero Reservar Mi Lectura</a>
     </div>
+  </div>
+</section>
+
+<section id="aurea-launch" class="aurea-launch">
+  <div class="aurea-launch-glow aurea-glow-1"></div>
+  <div class="aurea-launch-glow aurea-glow-2"></div>
+  <div class="aurea-launch-inner">
+    <div class="aurea-launch-eyebrow">ÁUREA · ORÁCULO SISTÉMICO DE 22 ARCANOS</div>
+    <h2 class="aurea-launch-title">El universo Áurea<br>está a punto de abrirse.</h2>
+    <p class="aurea-launch-text">Una experiencia para explorar nuestra historia, nuestros vínculos y aquello que busca ser visto a través del símbolo y la mirada sistémica.</p>
+    <div class="aurea-launch-date">LANZAMIENTO OFICIAL <strong>Martes 13 de octubre · 13:00 hs</strong></div>
+    <div id="aurea-countdown" class="aurea-countdown">
+      <div class="aurea-time-box"><span id="aurea-days">00</span><small>DÍAS</small></div>
+      <div class="aurea-time-separator">:</div>
+      <div class="aurea-time-box"><span id="aurea-hours">00</span><small>HORAS</small></div>
+      <div class="aurea-time-separator">:</div>
+      <div class="aurea-time-box"><span id="aurea-minutes">00</span><small>MIN</small></div>
+      <div class="aurea-time-separator">:</div>
+      <div class="aurea-time-box"><span id="aurea-seconds">00</span><small>SEG</small></div>
+    </div>
+    <div id="aurea-prelaunch-state" class="aurea-state">
+      <div class="aurea-state-title">PREVENTA ABIERTA</div>
+      <p>Reservá tu acceso antes del lanzamiento oficial y preparate para entrar a la experiencia Áurea.</p>
+      <a id="aurea-preorder-button" href="#" class="aurea-button aurea-button-primary">QUIERO ENTRAR A LA PREVENTA</a>
+    </div>
+    <div id="aurea-launch-state" class="aurea-state aurea-launch-state-hidden">
+      <div class="aurea-state-title aurea-live-title">✦ EL KIT COMPLETO YA ESTÁ DISPONIBLE ✦</div>
+      <p>El universo Áurea ya está abierto. Accedé ahora a la experiencia completa.</p>
+      <a id="aurea-launch-button" href="#" class="aurea-button aurea-button-primary">QUIERO MI KIT COMPLETO</a>
+    </div>
+    <div class="aurea-microcopy">ÁUREA · Una imagen puede mostrarte una parte. El sistema puede revelarte el todo.</div>
   </div>
 </section>
 
@@ -718,6 +790,47 @@ document.addEventListener('keydown',e=>{
     if(e.key==='ArrowRight')nextImage();
   }
 });
+const PREVENTA_URL="#";
+const LANZAMIENTO_URL="#";
+const AUREA_LAUNCH_DATE=new Date("2026-10-13T13:00:00-03:00").getTime();
+const daysElement=document.getElementById("aurea-days");
+const hoursElement=document.getElementById("aurea-hours");
+const minutesElement=document.getElementById("aurea-minutes");
+const secondsElement=document.getElementById("aurea-seconds");
+const countdownElement=document.getElementById("aurea-countdown");
+const prelaunchState=document.getElementById("aurea-prelaunch-state");
+const launchState=document.getElementById("aurea-launch-state");
+const preorderButton=document.getElementById("aurea-preorder-button");
+const launchButton=document.getElementById("aurea-launch-button");
+preorderButton.href=PREVENTA_URL;
+launchButton.href=LANZAMIENTO_URL;
+function aureaPad(value){return String(value).padStart(2,"0")}
+function updateAureaCountdown(){
+  const now=Date.now();
+  const difference=AUREA_LAUNCH_DATE-now;
+  if(difference<=0){
+    daysElement.textContent="00";
+    hoursElement.textContent="00";
+    minutesElement.textContent="00";
+    secondsElement.textContent="00";
+    countdownElement.style.display="none";
+    prelaunchState.style.display="none";
+    launchState.style.display="block";
+    document.documentElement.dataset.aureaLive="true";
+    return;
+  }
+  const totalSeconds=Math.floor(difference/1000);
+  const days=Math.floor(totalSeconds/86400);
+  const hours=Math.floor((totalSeconds%86400)/3600);
+  const minutes=Math.floor((totalSeconds%3600)/60);
+  const seconds=totalSeconds%60;
+  daysElement.textContent=aureaPad(days);
+  hoursElement.textContent=aureaPad(hours);
+  minutesElement.textContent=aureaPad(minutes);
+  secondsElement.textContent=aureaPad(seconds);
+}
+updateAureaCountdown();
+setInterval(updateAureaCountdown,1000);
 </script>
 </body>
 </html>
